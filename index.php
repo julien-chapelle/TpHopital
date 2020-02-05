@@ -5,6 +5,8 @@
     <meta charset="UTF-8" />
     <title>Hopital La Manu</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Logo Title -->
+    <link rel="shortcut icon" href="Assets/img/logoHlm.png" class="titleLogo" />
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
     <link rel="stylesheet" href="Content/style.css" />
@@ -14,33 +16,46 @@
 
 <body>
     <div class="container-fluid p-0">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">Navbar</a>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top borderBottomNav">
+            <a class="navbar-brand" href=""><img src="Assets/img/logoHlm.png" class="navLogo" alt="Logo Hôpital La Manu" title="Hôpital La Manu" /></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Nouveau patient</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Features</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Pricing</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                        <a class="nav-link" href="#">Nouveau rendez-vous</a>
                     </li>
                 </ul>
             </div>
         </nav>
 
+        <h1>Index</h1>
 
-
-
-
+        <footer class="bg-light borderTopFooter">
+            <div class="row text-center px-3 py-2 m-0 justify-content-around">
+                <div class="col">
+                    <p class="text-dark">Retrouvez-nous sur les réseaux sociaux</p>
+                </div>
+            </div>
+            <div class="row px-3 py-2 m-0 justify-content-center">
+                <a class="col-5 p-0 pr-1 text-right" href="https://www.facebook.com/hopital.prive.estuaire" target="_blank">
+                    <img src="assets/img/facebook.png" class="footerLogoSize" title="Facebook" alt="Logo Facebook" />
+                </a>
+                <a class="col-2 p-0 pl-1 text-center" href="https://twitter.com/RamsaySante" target="_blank">
+                    <img src="assets/img/twitter.png" class="footerLogoSize" title="Twitter" alt="Logo Twitter" />
+                </a>
+                <a class="col-5 p-0 pl-1 text-left" href="https://www.linkedin.com/company/ramsaysante/" target="_blank">
+                    <img src="assets/img/linkedin.png" class="footerLogoSize" title="Linkedin" alt="Logo Linkedin" />
+                </a>
+            </div>
+            <div class="row text-center text-dark px-3 py-2 m-0 borderTopFooter">
+                <p class="col p-0"><?= 'Tout droits réservés© Hôpital privé La Manu - 2019 - ' . date('Y') ?></p>
+            </div>
+        </footer>
         <div id="scrollUp">
             <a href="#top" class="scrollUpColor"><i class="far fa-caret-square-up"></i></a>
         </div>

@@ -1,3 +1,4 @@
+/* Font */
 @font-face {
     font-family: "Mayeka";
     src: url("../Fonts/Mayeka Regular Demo.otf") format("opentype");
@@ -7,5 +8,49 @@
 
 body {
     font-family: "Mayeka";
-    font-size: 1.5em;
+    font-size: 1.1em;
+    background: url("../Assets/img/bodyPic.jpg");
+    background-position: left;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 }
+
+/* logo title */
+.titleLogo {
+    width: 16px;
+}
+
+/* logo navBar */
+.navLogo {
+    width: 5rem;
+}
+
+/* scrollUp button */
+#scrollUp {
+    position: fixed;
+    bottom: 1px;
+    right: -100px;
+    font-size: 35px;
+}
+
+.scrollUpColor {
+    color: #77efe6;
+    opacity: 0.7;
+}
+
+/* size logo footer */
+.footerLogoSize {
+    height: 35px;
+}
+
+.borderBottomNav {
+    border-bottom: 2px solid #77efe6;
+}
+
+.borderTopFooter {
+    border-top: 2px solid #77efe6;
+}
+
+
