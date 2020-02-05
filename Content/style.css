@@ -1,0 +1,11 @@
+@font-face {
+    font-family: "Mayeka";
+    src: url("../Fonts/Mayeka Regular Demo.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: "Mayeka";
+    font-size: 1.5em;
+}
