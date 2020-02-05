@@ -1,0 +1,13 @@
+ErrorDocument 404 http://hopitalLaManu/404.php
+
+Routing
+
+RewriteEngine On
+
+RewriteBase /laptitevadrouille/
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ server.php [QSA,L]
+
+
+
