@@ -4,13 +4,24 @@ class Hlm_patient
 {
 
     //Attributs
+    private $_id;
     private $_lastname;
     private $_firstname;
-    private $_birthday;
+    private $_birthdate;
     private $_phone;
     private $_mail;
 
     //Méthodes d'appels Get/set
+    public function getId()
+    {
+        return $this->_id;
+    }
+
+    public function setId($id)
+    {
+        $this->_id = $id;
+    }
+
     public function getLastname()
     {
         return $this->_lastname;
@@ -31,14 +42,14 @@ class Hlm_patient
         $this->_firstname = $firstname;
     }
 
-    public function getBirthday()
+    public function getBirthdate()
     {
-        return $this->_birthday;
+        return $this->_birthdate;
     }
 
-    public function setBirthday($birthday)
+    public function setBirthdate($birthdate)
     {
-        $this->_birthday = $birthday;
+        $this->_birthdate = $birthdate;
     }
 
     public function getPhone()
@@ -62,14 +73,19 @@ class Hlm_patient
     }
 
     //Constructeur
-    public function __construct($lastname,$firstname,$birthday,$phone,$mail)
+    public function __construct()
     {
-        
-        $this->setLastname($lastname);
-        $this->setFirstname($firstname);
-        $this->setBirthday($birthday);
-        $this->setPhone($phone);
-        $this->setMail($mail);
+        parent::__construct();
+
+    }
+
+    public function addPatient()
+    {
+        $pdoQuery = "INSERT INTO `hlm_patient`(`lastname`,`firstname`,`birthdate`,`phone`,`mail`) 
+        VALUES (:lastname,:firstname,:birthdate,:phone,:mail)";
+
+        $pdoResult = $this->
+
 
     }
 

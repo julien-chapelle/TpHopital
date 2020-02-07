@@ -1,9 +1,55 @@
+<?php
+
+require_once('Controllers/Home/hlm_homeController.php');
+require_once('Controllers/hlm_patient/hlm_patientIndexViewController.php');
+require_once('Controllers/hlm_patient/hlm_patientCreateViewController.php');
+require_once('Controllers/hlm_patient/hlm_patientDetailViewController.php');
+require_once('Controllers/hlm_patient/hlm_patientEditViewController.php');
+require_once('Controllers/hlm_patient/hlm_patientDeleteViewController.php');
+require_once('Controllers/hlm_appointments/hlm_appointmentIndexViewController.php');
+require_once('Controllers/hlm_appointments/hlm_appointmentCreateViewController.php');
+require_once('Controllers/hlm_appointments/hlm_appointmentDetailViewController.php');
+require_once('Controllers/hlm_appointments/hlm_appointmentEditViewController.php');
+require_once('Controllers/hlm_appointments/hlm_appointmentDeleteViewController.php');
+require_once('Views/Home/index.php');
+require_once('Views/hlm_patient/index.php');
+require_once('Views/hlm_patient/create.php');
+require_once('Views/hlm_patient/details.php');
+require_once('Views/hlm_patient/edit.php');
+require_once('Views/hlm_patient/delete.php');
+require_once('Views/hlm_appointments/index.php');
+require_once('Views/hlm_appointments/create.php');
+require_once('Views/hlm_appointments/details.php');
+require_once('Views/hlm_appointments/edit.php');
+require_once('Views/hlm_appointments/delete.php');
+
+// var_dump($_GET);
+// var_dump($_GET['patient']);
+
+if (isset($_GET['view']) && $_GET['view'] == 'Accueil' || empty($_GET)) {
+    $homeViewController = new HomeController($homeIndexTitle, $homeIndexContents);
+} elseif (isset($_GET['list']) && $_GET['list'] == 'patient') {
+    $patientIndexViewController = new Hlm_viewIndexPatientController($patientIndexTitle, $patientIndexContents);
+} elseif (isset($_GET['list']) && $_GET['list'] == 'appointment') {
+    $appointmentIndexViewController = new Hlm_viewIndexAppointmentController($appointmentIndexTitle, $appointmentIndexContents);
+} elseif (isset($_GET['patient']) && $_GET['patient'] == 'add') {
+    $patientCreateViewController = new Hlm_viewCreatePatientController($patientCreateTitle, $patientCreateContents);
+} elseif (isset($_GET['appointment']) && $_GET['appointment'] == 'add') {
+    $appointmentCreateViewController = new Hlm_viewCreateAppointmentController($appointmentsCreateTitle, $appointmentsCreateContents);
+};
+
+
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
 <head>
     <meta charset="UTF-8" />
-    <title>Hopital La Manu</title>
+    <?= isset($_GET['view']) && $_GET['view'] == 'Accueil' || empty($_GET) ? $homeViewController->getTitle() : '' ?>
+    <?= isset($_GET['list']) && $_GET['list'] == 'patient' ? $patientIndexViewController->getTitle() : '' ?>
+    <?= isset($_GET['list']) && $_GET['list'] == 'appointment' ? $appointmentIndexViewController->getTitle() : '' ?>
+    <?= isset($_GET['patient']) && $_GET['patient'] == 'add' ? $patientCreateViewController->getTitle() : '' ?>
+    <?= isset($_GET['appointment']) && $_GET['appointment'] == 'add' ? $appointmentCreateViewController->getTitle() : '' ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Logo Title -->
     <link rel="shortcut icon" href="Assets/img/logoHlm.png" class="titleLogo" />
@@ -16,25 +62,29 @@
 
 <body>
     <div class="container-fluid p-0">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top borderBottomNav">
-            <a class="navbar-brand" href=""><img src="Assets/img/logoHlm.png" class="navLogo" alt="Logo Hôpital La Manu" title="Hôpital La Manu" /></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Nouveau patient</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Nouveau rendez-vous</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-
-        <h1>Index</h1>
-
+        <form method="GET" action="index.php">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top borderBottomNav">
+                <a class="navbar-brand" href="http://hopitallamanu/index.php?view=Accueil"><img src="Assets/img/logoHlm.png" class="navLogo" alt="Logo Hôpital La Manu" title="Hôpital La Manu" /></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="http://hopitallamanu/index.php?list=patient">Liste des patients</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="http://hopitallamanu/index.php?list=appointment">Liste des rendez-vous</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </form>
+        <?= isset($_GET['view']) && $_GET['view'] == 'Accueil' || empty($_GET) ? $homeViewController->getContents() : '' ?>
+        <?= isset($_GET['list']) && $_GET['list'] == 'patient' ? $patientIndexViewController->getContents() : '' ?>
+        <?= isset($_GET['list']) && $_GET['list'] == 'appointment' ? $appointmentIndexViewController->getContents() : '' ?>
+        <?= isset($_GET['patient']) && $_GET['patient'] == 'add' ? $patientCreateViewController->getContents() : '' ?>
+        <?= isset($_GET['appointment']) && $_GET['appointment'] == 'add' ? $appointmentCreateViewController->getContents() : '' ?>
         <footer class="bg-light borderTopFooter">
             <div class="row text-center px-3 py-2 m-0 justify-content-around">
                 <div class="col">

@@ -17,6 +17,11 @@ body {
     background-size: cover;
 }
 
+/* hauteur contenu body */
+.heightBody {
+    height: 100vh;
+}
+
 /* logo title */
 .titleLogo {
     width: 16px;
@@ -25,6 +30,11 @@ body {
 /* logo navBar */
 .navLogo {
     width: 5rem;
+}
+
+/* logo page index */
+.navLogo {
+    width: 7rem;
 }
 
 /* scrollUp button */
