@@ -1,5 +1,7 @@
 <?php
 
+require_once('Controllers/hlm_patient/hlm_addPatientController.php');
+require_once('Controllers/hlm_patient/hlm_listPatientController.php');
 require_once('Controllers/Home/hlm_homeController.php');
 require_once('Controllers/hlm_patient/hlm_patientIndexViewController.php');
 require_once('Controllers/hlm_patient/hlm_patientCreateViewController.php');
@@ -11,45 +13,22 @@ require_once('Controllers/hlm_appointments/hlm_appointmentCreateViewController.p
 require_once('Controllers/hlm_appointments/hlm_appointmentDetailViewController.php');
 require_once('Controllers/hlm_appointments/hlm_appointmentEditViewController.php');
 require_once('Controllers/hlm_appointments/hlm_appointmentDeleteViewController.php');
-require_once('Views/Home/index.php');
-require_once('Views/hlm_patient/index.php');
-require_once('Views/hlm_patient/create.php');
-require_once('Views/hlm_patient/details.php');
-require_once('Views/hlm_patient/edit.php');
-require_once('Views/hlm_patient/delete.php');
-require_once('Views/hlm_appointments/index.php');
-require_once('Views/hlm_appointments/create.php');
-require_once('Views/hlm_appointments/details.php');
-require_once('Views/hlm_appointments/edit.php');
-require_once('Views/hlm_appointments/delete.php');
 
 // var_dump($_GET);
 // var_dump($_GET['patient']);
-
-if (isset($_GET['view']) && $_GET['view'] == 'Accueil' || empty($_GET)) {
-    $homeViewController = new HomeController($homeIndexTitle, $homeIndexContents);
-} elseif (isset($_GET['list']) && $_GET['list'] == 'patient') {
-    $patientIndexViewController = new Hlm_viewIndexPatientController($patientIndexTitle, $patientIndexContents);
-} elseif (isset($_GET['list']) && $_GET['list'] == 'appointment') {
-    $appointmentIndexViewController = new Hlm_viewIndexAppointmentController($appointmentIndexTitle, $appointmentIndexContents);
-} elseif (isset($_GET['patient']) && $_GET['patient'] == 'add') {
-    $patientCreateViewController = new Hlm_viewCreatePatientController($patientCreateTitle, $patientCreateContents);
-} elseif (isset($_GET['appointment']) && $_GET['appointment'] == 'add') {
-    $appointmentCreateViewController = new Hlm_viewCreateAppointmentController($appointmentsCreateTitle, $appointmentsCreateContents);
-};
-
-
+// var_dump($_GET['appointment']);
+// var_dump($_POST);
 ?>
 <!DOCTYPE html>
 <html lang="fr">
 
 <head>
     <meta charset="UTF-8" />
-    <?= isset($_GET['view']) && $_GET['view'] == 'Accueil' || empty($_GET) ? $homeViewController->getTitle() : '' ?>
-    <?= isset($_GET['list']) && $_GET['list'] == 'patient' ? $patientIndexViewController->getTitle() : '' ?>
-    <?= isset($_GET['list']) && $_GET['list'] == 'appointment' ? $appointmentIndexViewController->getTitle() : '' ?>
-    <?= isset($_GET['patient']) && $_GET['patient'] == 'add' ? $patientCreateViewController->getTitle() : '' ?>
-    <?= isset($_GET['appointment']) && $_GET['appointment'] == 'add' ? $appointmentCreateViewController->getTitle() : '' ?>
+    <?= isset($_GET['view']) && $_GET['view'] == 'Accueil' || empty($_GET) ? '<title>Hopital La Manu</title>' : '' ?>
+    <?= isset($_GET['list']) && $_GET['list'] == 'patient' ? '<title>Liste des patients</title>' : '' ?>
+    <?= isset($_GET['list']) && $_GET['list'] == 'appointment' ? '<title>Liste des rendez-vous</title>' : '' ?>
+    <?= isset($_GET['patient']) && $_GET['patient'] == 'add' ? '<title>Ajout patient</title>' : '' ?>
+    <?= isset($_GET['appointment']) && $_GET['appointment'] == 'add' ? '<title>Ajout rendez-vous</title>' : '' ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Logo Title -->
     <link rel="shortcut icon" href="Assets/img/logoHlm.png" class="titleLogo" />
@@ -80,11 +59,11 @@ if (isset($_GET['view']) && $_GET['view'] == 'Accueil' || empty($_GET)) {
                 </div>
             </nav>
         </form>
-        <?= isset($_GET['view']) && $_GET['view'] == 'Accueil' || empty($_GET) ? $homeViewController->getContents() : '' ?>
-        <?= isset($_GET['list']) && $_GET['list'] == 'patient' ? $patientIndexViewController->getContents() : '' ?>
-        <?= isset($_GET['list']) && $_GET['list'] == 'appointment' ? $appointmentIndexViewController->getContents() : '' ?>
-        <?= isset($_GET['patient']) && $_GET['patient'] == 'add' ? $patientCreateViewController->getContents() : '' ?>
-        <?= isset($_GET['appointment']) && $_GET['appointment'] == 'add' ? $appointmentCreateViewController->getContents() : '' ?>
+        <?= isset($_GET['view']) && $_GET['view'] == 'Accueil' || empty($_GET) ? include('Views/Home/index.php') : '' ?>
+        <?= isset($_GET['list']) && $_GET['list'] == 'patient' ? include('Views/hlm_patient/index.php') : '' ?>
+        <?= isset($_GET['list']) && $_GET['list'] == 'appointment' ? include('Views/hlm_appointments/index.php') : '' ?>
+        <?= isset($_GET['patient']) && $_GET['patient'] == 'add' ? include('Views/hlm_patient/create.php') : '' ?>
+        <?= isset($_GET['appointment']) ? include('Views/hlm_appointments/create.php') : '' ?>
         <footer class="bg-light borderTopFooter">
             <div class="row text-center px-3 py-2 m-0 justify-content-around">
                 <div class="col">

@@ -1,6 +1,6 @@
 <?php
 
-class Hlm_patient
+class Hlm_patient extends Hlm_database
 {
 
     //Attributs
@@ -81,11 +81,30 @@ class Hlm_patient
 
     public function addPatient()
     {
-        $pdoQuery = "INSERT INTO `hlm_patient`(`lastname`,`firstname`,`birthdate`,`phone`,`mail`) 
+        $addPatientQuery = "INSERT INTO `hlm_patients`(`lastname`,`firstname`,`birthdate`,`phone`,`mail`) 
         VALUES (:lastname,:firstname,:birthdate,:phone,:mail)";
 
-        $pdoResult = $this->
+        $addPatientResult = $this->db->prepare($addPatientQuery);
+        $addPatientResult->bindValue(':lastname', $this->getLastname(), PDO::PARAM_STR);
+        $addPatientResult->bindValue(':firstname', $this->getFirstname(), PDO::PARAM_STR);
+        $addPatientResult->bindValue(':birthdate', $this->getBirthdate(), PDO::PARAM_STR);
+        $addPatientResult->bindValue(':phone', $this->getPhone(), PDO::PARAM_STR);
+        $addPatientResult->bindValue(':mail', $this->getMail(), PDO::PARAM_STR);
+        if ($addPatientResult->execute()) {
+            echo 'Le patient a été ajouté';
+        } else {
+            echo 'Erreur';
+        }
 
+    }
+
+    public function listPatient()
+    {
+        $listPatientQuery = "SELECT * FROM `hlm_patients`";
+
+        $listPatientResult = $this->db->query($listPatientQuery);
+        $dataListPatient = $listPatientResult->fetchAll();
+        return $dataListPatient;
 
     }
 
