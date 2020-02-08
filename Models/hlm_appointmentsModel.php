@@ -1,6 +1,6 @@
 <?php
 
-class Hlm_appointements
+class Hlm_appointements extends Hlm_database
 {
 
     //Attributs
@@ -40,13 +40,36 @@ class Hlm_appointements
     }
 
     //Constructeur
-    public function __construct($id,$dateHour,$idPatients)
+    public function __construct()
     {
-        
-        $this->setId($id);
-        $this->setDateHour($dateHour);
-        $this->setIdPatients($idPatients);
 
+        parent::__construct();
     }
 
+    public function addAppointment()
+    {
+        $addAppointmentQuery = "INSERT INTO `hlm_appointments` (`dateHour`,`idPatients`) 
+        VALUES (:dateHour,:idPatients)";
+
+        $addAppointmentResult = $this->db->prepare($addAppointmentQuery);
+        $addAppointmentResult->bindValue(':dateHour', $this->getDateHour(), PDO::PARAM_STR);
+        $addAppointmentResult->bindValue(':idPatients', $this->getIdPatients(), PDO::PARAM_INT);
+        if ($addAppointmentResult->execute()) {
+            echo 'Le rendez-vous a été ajouté';
+        } else {
+            echo 'Erreur';
+        }
+    }
+
+    public function listAppointment()
+    {
+        $listAppointmentQuery = "SELECT `hlm_appointments`.`id`,`hlm_appointments`.`dateHour`,`hlm_patients`.`lastname`, `hlm_patients`.`firstname`,`hlm_patients`.`id`
+        FROM `hlm_appointments`
+        LEFT JOIN `hlm_patients`
+        ON `hlm_patients`.`id` = `hlm_appointments`.`idPatients`";
+
+        $listAppointmentResult = $this->db->query($listAppointmentQuery);
+        $dataListAppointment = $listAppointmentResult->fetchAll();
+        return $dataListAppointment;
+    }
 }

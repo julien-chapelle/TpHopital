@@ -1,6 +1,11 @@
 <div class="container-fluid p-0">
     <div class="row text-center justify-content-center m-5">
         <div class="col my-auto">
+            <p class="h2">Liste des patients</p>
+        </div>
+    </div>
+    <div class="row text-center justify-content-center m-5">
+        <div class="col my-auto">
             <form method="GET" action="index.php">
                 <a class="btn btn-outline-danger" href="http://hopitallamanu/index.php?patient=add" title="Ajouter un patient">Ajouter un patient</a>
             </form>
@@ -11,7 +16,7 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">#</th>
+                        <th scope="col">Numéro patient</th>
                         <th scope="col">Nom</th>
                         <th scope="col">Prénom</th>
                         <th scope="col">Date de naissance</th>

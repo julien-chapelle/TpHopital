@@ -1,7 +1,9 @@
 <?php
-
+date_default_timezone_set('Europe/Paris');
 require_once('Controllers/hlm_patient/hlm_addPatientController.php');
 require_once('Controllers/hlm_patient/hlm_listPatientController.php');
+require_once('Controllers/hlm_appointments/hlm_addAppointmentController.php');
+require_once('Controllers/hlm_appointments/hlm_listAppointmentController.php');
 require_once('Controllers/Home/hlm_homeController.php');
 require_once('Controllers/hlm_patient/hlm_patientIndexViewController.php');
 require_once('Controllers/hlm_patient/hlm_patientCreateViewController.php');
@@ -17,7 +19,11 @@ require_once('Controllers/hlm_appointments/hlm_appointmentDeleteViewController.p
 // var_dump($_GET);
 // var_dump($_GET['patient']);
 // var_dump($_GET['appointment']);
+// var_dump($addAppointmentResult);
 // var_dump($_POST);
+// var_dump($idPatientAppointment);
+// var_dump($dateAppointment);
+// var_dump($hourAppointment);
 ?>
 <!DOCTYPE html>
 <html lang="fr">

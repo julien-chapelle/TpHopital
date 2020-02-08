@@ -1,13 +1,13 @@
 /* Font */
 @font-face {
-    font-family: "Mayeka";
-    src: url("../Fonts/Mayeka Regular Demo.otf") format("opentype");
+    font-family: "Sansation_Regular";
+    src: url("../Fonts/Sansation_Regular.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
 }
 
 body {
-    font-family: "Mayeka";
+    font-family: "Sansation_Regular";
     font-size: 1.1em;
     background: url("../Assets/img/bodyPic.jpg");
     background-position: left;
