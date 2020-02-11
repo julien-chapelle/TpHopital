@@ -1,5 +1,5 @@
-   <?php foreach ($detailPatient as $value) { ?>
-       <div class="card text-center m-5">
+   <div class="card text-center m-5">
+       <?php foreach ($detailPatient as $value) { ?>
            <div class="card-header h2">
                <?= $value['lastname'] . ' ' . $value['firstname'] ?>
            </div>
@@ -16,8 +16,13 @@
                    <a class="btn btn-outline-danger btn-sm" href="http://hopitallamanu/index.php?deletePatient=<?= $value['id'] ?>" title="Supprimer"><i class="fas fa-times"></i></a>
                </form>
            </div>
-           <div class="card-footer text-muted">
-               2 days ago
-           </div>
+       <?php }; ?>
+       <div class="card-footer">
+           <p class="card-text">RENDEZ-VOUS :</p>
+           <ul class="list-group">
+               <?php foreach ($detailAppointment as $value) { ?>
+                   <li class="list-group-item"><?= $value['dateHour'] ?></li>
+               <?php }; ?>
+           </ul>
        </div>
-   <?php }; ?>
+   </div>

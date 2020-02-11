@@ -74,11 +74,11 @@ class Hlm_appointements extends Hlm_database
     }
     public function detailAppointment()
     {
-        $detailAppointmentQuery = "SELECT `hlm_appointments`.`id`,`hlm_appointments`.`dateHour`,`hlm_patients`.`lastname`, `hlm_patients`.`firstname`,`hlm_patients`.`id`
+        $detailAppointmentQuery = "SELECT `hlm_appointments`.`id`,`hlm_appointments`.`dateHour`,`hlm_appointments`.`idPatients`,`hlm_patients`.`lastname`, `hlm_patients`.`firstname`,`hlm_patients`.`id`
         FROM `hlm_appointments`
         LEFT JOIN `hlm_patients`
         ON `hlm_patients`.`id` = `hlm_appointments`.`idPatients`
-        WHERE `hlm_appointments`.`id` = :currentId";
+        WHERE `hlm_appointments`.`idPatients` = :currentId";
 
         $detailAppointmentResult = $this->db->prepare($detailAppointmentQuery);
         $detailAppointmentResult->bindValue(':currentId', $this->getId(), PDO::PARAM_INT);
