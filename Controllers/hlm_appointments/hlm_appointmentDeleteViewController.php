@@ -1,38 +1,13 @@
 <?php
 
-class Hlm_viewDeleteAppointmentController
-{
-    //Attributs
-    private $_title;
-    private $_contents;
+require_once('Models/hlm_database.php');
+require_once('Models/hlm_appointmentsModel.php');
+$appointment = new Hlm_appointements();
 
-    //fonction d'appel
-    public function getTitle()
-    {
-        return $this->_title;
-    }
+if (isset($_POST['deleteAppointment'])) {
 
-    public function setTitle($title)
-    {
-        $this->_title = $title;
-    }
-
-    public function getContents()
-    {
-        return $this->_contents;
-    }
-
-    public function setContents($contents)
-    {
-        $this->_contents = $contents;
-    }
-
-    //Constructeur
-    public function __construct($title,$contents)
-    {
-        $this->setTitle($title);
-        $this->setContents($contents);
-    }
+    $currentId = intval($_POST['idAppointmentDelete']);
+    //Hydratation
+    $appointment->setId($currentId);
+    $deleteAppointment = $appointment->deleteAppointment();
 }
-
-?>

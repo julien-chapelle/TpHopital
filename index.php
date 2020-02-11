@@ -5,25 +5,11 @@ require_once('Controllers/hlm_appointments/hlm_addAppointmentController.php');
 require_once('Controllers/hlm_patient/hlm_listPatientController.php');
 require_once('Controllers/hlm_appointments/hlm_listAppointmentController.php');
 require_once('Controllers/Home/hlm_homeController.php');
-require_once('Controllers/hlm_patient/hlm_patientIndexViewController.php');
-require_once('Controllers/hlm_patient/hlm_patientCreateViewController.php');
 require_once('Controllers/hlm_patient/hlm_patientDetailViewController.php');
 require_once('Controllers/hlm_patient/hlm_patientEditViewController.php');
 require_once('Controllers/hlm_patient/hlm_patientDeleteViewController.php');
-require_once('Controllers/hlm_appointments/hlm_appointmentIndexViewController.php');
-require_once('Controllers/hlm_appointments/hlm_appointmentCreateViewController.php');
-require_once('Controllers/hlm_appointments/hlm_appointmentDetailViewController.php');
 require_once('Controllers/hlm_appointments/hlm_appointmentEditViewController.php');
 require_once('Controllers/hlm_appointments/hlm_appointmentDeleteViewController.php');
-
-// var_dump($_GET);
-// var_dump($_GET['detailPatient']);
-// var_dump($_GET['appointment']);
-// var_dump($addAppointmentResult);
-// var_dump($_POST);
-// var_dump($idPatientAppointment);
-// var_dump($dateAppointment);
-// var_dump($hourAppointment);
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -76,6 +62,7 @@ require_once('Controllers/hlm_appointments/hlm_appointmentDeleteViewController.p
         <?= isset($_GET['editPatient']) ? include('Views/hlm_patient/edit.php') : '' ?>
         <?= isset($_GET['addAppointment']) ? include('Views/hlm_appointments/create.php') : '' ?>
         <?= isset($_GET['editAppointment']) ? include('Views/hlm_appointments/edit.php') : '' ?>
+        <?= include('Views/hlm_appointments/delete.php') ?>
         <footer class="bg-light borderTopFooter">
             <div class="row text-center px-3 py-2 m-0 justify-content-around">
                 <div class="col">

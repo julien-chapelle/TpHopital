@@ -63,7 +63,7 @@ class Hlm_appointements extends Hlm_database
 
     public function listAppointment()
     {
-        $listAppointmentQuery = "SELECT `hlm_appointments`.`id`,`hlm_appointments`.`dateHour`,`hlm_patients`.`lastname`, `hlm_patients`.`firstname`,`hlm_patients`.`id`
+        $listAppointmentQuery = "SELECT `hlm_appointments`.`id` AS `appointmentsId`,`hlm_appointments`.`dateHour`,`hlm_patients`.`lastname`, `hlm_patients`.`firstname`,`hlm_patients`.`id` AS `patientId`
         FROM `hlm_appointments`
         LEFT JOIN `hlm_patients`
         ON `hlm_patients`.`id` = `hlm_appointments`.`idPatients` ORDER BY `hlm_appointments`.`idPatients` ASC";
@@ -78,7 +78,7 @@ class Hlm_appointements extends Hlm_database
         FROM `hlm_appointments`
         LEFT JOIN `hlm_patients`
         ON `hlm_patients`.`id` = `hlm_appointments`.`idPatients`
-        WHERE `hlm_appointments`.`idPatients` = :currentId";
+        WHERE `hlm_appointments`.`id` = :currentId";
 
         $detailAppointmentResult = $this->db->prepare($detailAppointmentQuery);
         $detailAppointmentResult->bindValue(':currentId', $this->getId(), PDO::PARAM_INT);
@@ -102,5 +102,34 @@ class Hlm_appointements extends Hlm_database
         } else {
             echo 'Erreur';
         }
+    }
+
+    public function appointmentListOnDetailPatient()
+    {
+        $detailAppointmentQuery = "SELECT `hlm_appointments`.`id`,`hlm_appointments`.`dateHour`,`hlm_appointments`.`idPatients`,`hlm_patients`.`id`
+        FROM `hlm_appointments`
+        LEFT JOIN `hlm_patients`
+        ON `hlm_patients`.`id` = `hlm_appointments`.`idPatients`
+        WHERE `hlm_appointments`.`idPatients` = :currentId";
+
+        $detailAppointmentResult = $this->db->prepare($detailAppointmentQuery);
+        $detailAppointmentResult->bindValue(':currentId', $this->getId(), PDO::PARAM_INT);
+        if ($detailAppointmentResult->execute()) {
+            $detailAppointment = $detailAppointmentResult->fetchAll(PDO::FETCH_ASSOC);
+            return $detailAppointment;
+        };
+    }
+
+    public function deleteAppointment()
+    {
+        $deleteAppointmentQuery = "DELETE FROM `hlm_appointments`
+        WHERE `id` = :currentId";
+
+        $deleteAppointmentResult = $this->db->prepare($deleteAppointmentQuery);
+        $deleteAppointmentResult->bindValue(':currentId', $this->getId(), PDO::PARAM_INT);
+        if ($deleteAppointmentResult->execute()) {
+            $deleteAppointment = $deleteAppointmentResult->fetchAll(PDO::FETCH_ASSOC);
+            return $deleteAppointment;
+        };
     }
 }

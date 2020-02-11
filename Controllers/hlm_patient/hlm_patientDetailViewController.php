@@ -18,6 +18,6 @@ if (isset($_GET['detailPatient'])) {
     $currentId = intval($_GET['detailPatient']);
     //Hydratation
     $appointment->setId($currentId);
-    $detailAppointment = $appointment->detailAppointment();
+    $detailAppointment = $appointment->appointmentListOnDetailPatient();
 
 }

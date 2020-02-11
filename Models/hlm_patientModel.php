@@ -107,7 +107,7 @@ class Hlm_patient extends Hlm_database
 
     public function detailPatient()
     {
-        $detailPatientQuery = "SELECT `id`,`lastname`,`firstname`,`birthdate`,`phone`,`mail` 
+        $detailPatientQuery = "SELECT `hlm_patients`.`id`,`hlm_patients`.`lastname`,`hlm_patients`.`firstname`,`hlm_patients`.`birthdate`,`hlm_patients`.`phone`,`hlm_patients`.`mail` 
         FROM `hlm_patients`
         WHERE `id` = :currentId";
 

@@ -1,6 +1,6 @@
 <div class="row text-center justify-content-center m-5">
     <div class="col my-auto">
-        <form method="POST" action="">
+        <form method="POST" action="http://hopitallamanu/index.php?list=patient">
             <div class="form-group">
                 <label for="lastnamePatient">Nom</label>
                 <input type="text" class="form-control text-center" id="lastnamePatient" name="lastnamePatient" placeholder="ex: Dupont">

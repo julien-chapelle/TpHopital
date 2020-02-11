@@ -16,37 +16,37 @@
             <div class="card mb-3">
                 <div class="row no-gutters">
                     <div class="col-md-1">
-                        <div class="card-body">
+                        <div class="card-body px-2">
                             <p class="card-text h5"><small class="text-muted">Numéro patient</small></p>
                         </div>
                     </div>
                     <div class="col-md-2">
-                        <div class="card-body">
+                        <div class="card-body px-2">
                             <p class="card-text h5"><small class="text-muted">Nom</small></p>
                         </div>
                     </div>
                     <div class="col-md-1">
-                        <div class="card-body">
+                        <div class="card-body px-2">
                             <p class="card-text h5"><small class="text-muted">Prénom</small></p>
                         </div>
                     </div>
                     <div class="col-md-2">
-                        <div class="card-body">
+                        <div class="card-body px-2">
                             <p class="card-text h5"><small class="text-muted">Date de naissance</small></p>
                         </div>
                     </div>
                     <div class="col-md-2">
-                        <div class="card-body">
+                        <div class="card-body px-2">
                             <p class="card-text h5"><small class="text-muted">Téléphone</small></p>
                         </div>
                     </div>
                     <div class="col-md-2">
-                        <div class="card-body">
+                        <div class="card-body px-2">
                             <p class="card-text h5"><small class="text-muted">Mail</small></p>
                         </div>
                     </div>
                     <div class="col-md-2">
-                        <div class="card-body">
+                        <div class="card-body px-2">
                             <p class="card-text h5"><small class="text-muted"></small></p>
                         </div>
                     </div>
@@ -60,37 +60,37 @@
                 <div class="card mb-3">
                     <div class="row no-gutters">
                         <div class="col-md-1">
-                            <div class="card-body">
+                            <div class="card-body px-2">
                                 <p class="card-text h4"><small class="text-muted"><?= $row['id'] ?></small></p>
                             </div>
                         </div>
                         <div class="col-md-2">
-                            <div class="card-body">
+                            <div class="card-body px-2">
                                 <p class="card-text h5"><small class="text-muted"><?= $row['lastname'] ?></small></p>
                             </div>
                         </div>
                         <div class="col-md-1">
-                            <div class="card-body">
+                            <div class="card-body px-2">
                                 <p class="card-text h5"><small class="text-muted"><?= $row['firstname'] ?></small></p>
                             </div>
                         </div>
                         <div class="col-md-2">
-                            <div class="card-body">
+                            <div class="card-body px-2">
                                 <p class="card-text h5"><small class="text-muted"><?= $row['birthdate'] ?></small></p>
                             </div>
                         </div>
                         <div class="col-md-2">
-                            <div class="card-body">
+                            <div class="card-body px-2">
                                 <p class="card-text h5"><small class="text-muted"><?= $row['phone'] ?></small></p>
                             </div>
                         </div>
                         <div class="col-md-2">
-                            <div class="card-body">
+                            <div class="card-body px-2">
                                 <p class="card-text h5"><small class="text-muted"><a href="mailto:<?= $row['mail'] ?>"><?= $row['mail'] ?></a></small></p>
                             </div>
                         </div>
                         <div class="col-md-2">
-                            <div class="card-body">
+                            <div class="card-body px-2">
                                 <p class="card-text"><small class="text-muted"></small>
                                     <form method="GET" action="">
                                         <a class="btn btn-outline-danger btn-sm" href="http://hopitallamanu/index.php?addAppointment=<?= $row['id'] ?>" title="Ajout rendez-vous"><i class="far fa-calendar-check"></i></a>
