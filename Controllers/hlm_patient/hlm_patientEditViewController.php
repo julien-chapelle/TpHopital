@@ -1,38 +1,34 @@
 <?php
 
-class Hlm_viewEditPatientController
-{
-    //Attributs
-    private $_title;
-    private $_contents;
+require_once('Models/hlm_database.php');
+require_once('Models/hlm_patientModel.php');
+$patient = new Hlm_patient();
+if (isset($_GET['editPatient'])) {
 
-    //fonction d'appel
-    public function getTitle()
-    {
-        return $this->_title;
-    }
-
-    public function setTitle($title)
-    {
-        $this->_title = $title;
-    }
-
-    public function getContents()
-    {
-        return $this->_contents;
-    }
-
-    public function setContents($contents)
-    {
-        $this->_contents = $contents;
-    }
-
-    //Constructeur
-    public function __construct($title,$contents)
-    {
-        $this->setTitle($title);
-        $this->setContents($contents);
-    }
+    $currentId = intval($_GET['editPatient']);
+    //Hydratation
+    $patient->setId($currentId);
+    $detailPatient = $patient->detailPatient();
 }
 
-?>
+$editPatient = new Hlm_patient();
+if (isset($_POST['editPatient'])) {
+    $lastName = $_POST['lastnamePatient'];
+    $firstName = $_POST['firstnamePatient'];
+    $birthdate = $_POST['birthdatePatient'];
+    $phone = $_POST['phonePatient'];
+    $mail = $_POST['mailPatient'];
+    $currentId = intval($_GET['editPatient']);
+    //Hydratation
+    $editPatient->setFirstname($firstName);
+    $editPatient->setLastname($lastName);
+    $editPatient->setBirthdate($birthdate);
+    $editPatient->setPhone($phone);
+    $editPatient->setMail($mail);
+    $editPatient->setId($currentId);
+    $editPatient->editPatient();
+}
+
+if(isset($_POST['editPatient'])) {
+    header('refresh: 0');
+}

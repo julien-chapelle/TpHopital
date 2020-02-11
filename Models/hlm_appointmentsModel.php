@@ -66,10 +66,41 @@ class Hlm_appointements extends Hlm_database
         $listAppointmentQuery = "SELECT `hlm_appointments`.`id`,`hlm_appointments`.`dateHour`,`hlm_patients`.`lastname`, `hlm_patients`.`firstname`,`hlm_patients`.`id`
         FROM `hlm_appointments`
         LEFT JOIN `hlm_patients`
-        ON `hlm_patients`.`id` = `hlm_appointments`.`idPatients`";
+        ON `hlm_patients`.`id` = `hlm_appointments`.`idPatients` ORDER BY `hlm_appointments`.`idPatients` ASC";
 
         $listAppointmentResult = $this->db->query($listAppointmentQuery);
         $dataListAppointment = $listAppointmentResult->fetchAll();
         return $dataListAppointment;
+    }
+    public function detailAppointment()
+    {
+        $detailAppointmentQuery = "SELECT `hlm_appointments`.`id`,`hlm_appointments`.`dateHour`,`hlm_patients`.`lastname`, `hlm_patients`.`firstname`,`hlm_patients`.`id`
+        FROM `hlm_appointments`
+        LEFT JOIN `hlm_patients`
+        ON `hlm_patients`.`id` = `hlm_appointments`.`idPatients`
+        WHERE `hlm_appointments`.`id` = :currentId";
+
+        $detailAppointmentResult = $this->db->prepare($detailAppointmentQuery);
+        $detailAppointmentResult->bindValue(':currentId', $this->getId(), PDO::PARAM_INT);
+        if ($detailAppointmentResult->execute()) {
+            $detailAppointment = $detailAppointmentResult->fetchAll(PDO::FETCH_ASSOC);
+            return $detailAppointment;
+        };
+    }
+
+    public function editAppointment()
+    {
+        $editAppointmentQuery = "UPDATE hlm_appointments
+        SET dateHour = :dateHour
+        WHERE id = :currentId";
+
+        $editAppointmentResult = $this->db->prepare($editAppointmentQuery);
+        $editAppointmentResult->bindValue(':currentId', $this->getId(), PDO::PARAM_INT);
+        $editAppointmentResult->bindValue(':dateHour', $this->getDateHour(), PDO::PARAM_STR);
+        if ($editAppointmentResult->execute()) {
+            echo 'Le patient a été modifié';
+        } else {
+            echo 'Erreur';
+        }
     }
 }

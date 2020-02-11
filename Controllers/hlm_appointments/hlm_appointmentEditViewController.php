@@ -1,38 +1,29 @@
 <?php
 
-class Hlm_viewEditAppointmentController
-{
-    //Attributs
-    private $_title;
-    private $_contents;
+require_once('Models/hlm_database.php');
+require_once('Models/hlm_appointmentsModel.php');
+$appointment = new Hlm_appointements();
+if (isset($_GET['editAppointment'])) {
 
-    //fonction d'appel
-    public function getTitle()
-    {
-        return $this->_title;
-    }
-
-    public function setTitle($title)
-    {
-        $this->_title = $title;
-    }
-
-    public function getContents()
-    {
-        return $this->_contents;
-    }
-
-    public function setContents($contents)
-    {
-        $this->_contents = $contents;
-    }
-
-    //Constructeur
-    public function __construct($title,$contents)
-    {
-        $this->setTitle($title);
-        $this->setContents($contents);
-    }
+    $currentId = intval($_GET['editAppointment']);
+    //Hydratation
+    $appointment->setId($currentId);
+    $detailAppointment = $appointment->detailAppointment();
 }
 
-?>
+$editAppointment = new Hlm_appointements();
+if (isset($_POST['editAppointment'])) {
+    $dateAppointment = $_POST['dateAppointment'];
+    $hourAppointment = $_POST['hourAppointment'];
+    $idPatientAppointment = intval($_POST['idPatient']);
+    $currentId = intval($_GET['editAppointment']);
+    //Hydratation
+    $editAppointment->setDateHour($dateAppointment . ' ' . $hourAppointment . ':00');
+    $editAppointment->setIdPatients($idPatientAppointment);
+    $editAppointment->setId($currentId);
+    $editAppointment->editAppointment();
+}
+
+if(isset($_POST['editAppointment'])) {
+    header('refresh: 0');
+}

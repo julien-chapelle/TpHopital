@@ -1,8 +1,8 @@
 <?php
 date_default_timezone_set('Europe/Paris');
 require_once('Controllers/hlm_patient/hlm_addPatientController.php');
-require_once('Controllers/hlm_patient/hlm_listPatientController.php');
 require_once('Controllers/hlm_appointments/hlm_addAppointmentController.php');
+require_once('Controllers/hlm_patient/hlm_listPatientController.php');
 require_once('Controllers/hlm_appointments/hlm_listAppointmentController.php');
 require_once('Controllers/Home/hlm_homeController.php');
 require_once('Controllers/hlm_patient/hlm_patientIndexViewController.php');
@@ -17,7 +17,7 @@ require_once('Controllers/hlm_appointments/hlm_appointmentEditViewController.php
 require_once('Controllers/hlm_appointments/hlm_appointmentDeleteViewController.php');
 
 // var_dump($_GET);
-// var_dump($_GET['patient']);
+// var_dump($_GET['detailPatient']);
 // var_dump($_GET['appointment']);
 // var_dump($addAppointmentResult);
 // var_dump($_POST);
@@ -34,7 +34,10 @@ require_once('Controllers/hlm_appointments/hlm_appointmentDeleteViewController.p
     <?= isset($_GET['list']) && $_GET['list'] == 'patient' ? '<title>Liste des patients</title>' : '' ?>
     <?= isset($_GET['list']) && $_GET['list'] == 'appointment' ? '<title>Liste des rendez-vous</title>' : '' ?>
     <?= isset($_GET['patient']) && $_GET['patient'] == 'add' ? '<title>Ajout patient</title>' : '' ?>
+    <?= isset($_GET['detailPatient']) ? '<title>Détail patient</title>' : '' ?>
+    <?= isset($_GET['editPatient']) ? '<title>Editer patient</title>' : '' ?>
     <?= isset($_GET['appointment']) && $_GET['appointment'] == 'add' ? '<title>Ajout rendez-vous</title>' : '' ?>
+    <?= isset($_GET['editAppointment']) ? '<title>Modification rendez-vous</title>' : '' ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Logo Title -->
     <link rel="shortcut icon" href="Assets/img/logoHlm.png" class="titleLogo" />
@@ -69,7 +72,10 @@ require_once('Controllers/hlm_appointments/hlm_appointmentDeleteViewController.p
         <?= isset($_GET['list']) && $_GET['list'] == 'patient' ? include('Views/hlm_patient/index.php') : '' ?>
         <?= isset($_GET['list']) && $_GET['list'] == 'appointment' ? include('Views/hlm_appointments/index.php') : '' ?>
         <?= isset($_GET['patient']) && $_GET['patient'] == 'add' ? include('Views/hlm_patient/create.php') : '' ?>
-        <?= isset($_GET['appointment']) ? include('Views/hlm_appointments/create.php') : '' ?>
+        <?= isset($_GET['detailPatient']) ? include('Views/hlm_patient/details.php') : '' ?>
+        <?= isset($_GET['editPatient']) ? include('Views/hlm_patient/edit.php') : '' ?>
+        <?= isset($_GET['addAppointment']) ? include('Views/hlm_appointments/create.php') : '' ?>
+        <?= isset($_GET['editAppointment']) ? include('Views/hlm_appointments/edit.php') : '' ?>
         <footer class="bg-light borderTopFooter">
             <div class="row text-center px-3 py-2 m-0 justify-content-around">
                 <div class="col">

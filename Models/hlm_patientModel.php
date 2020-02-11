@@ -76,7 +76,6 @@ class Hlm_patient extends Hlm_database
     public function __construct()
     {
         parent::__construct();
-
     }
 
     public function addPatient()
@@ -95,7 +94,6 @@ class Hlm_patient extends Hlm_database
         } else {
             echo 'Erreur';
         }
-
     }
 
     public function listPatient()
@@ -105,7 +103,39 @@ class Hlm_patient extends Hlm_database
         $listPatientResult = $this->db->query($listPatientQuery);
         $dataListPatient = $listPatientResult->fetchAll();
         return $dataListPatient;
-
     }
 
+    public function detailPatient()
+    {
+        $detailPatientQuery = "SELECT `id`,`lastname`,`firstname`,`birthdate`,`phone`,`mail` 
+        FROM `hlm_patients`
+        WHERE `id` = :currentId";
+
+        $detailPatientResult = $this->db->prepare($detailPatientQuery);
+        $detailPatientResult->bindValue(':currentId', $this->getId(), PDO::PARAM_INT);
+        if ($detailPatientResult->execute()) {
+            $detailPatient = $detailPatientResult->fetchAll(PDO::FETCH_ASSOC);
+            return $detailPatient;
+        };
+    }
+
+    public function editPatient()
+    {
+        $editPatientQuery = "UPDATE hlm_patients
+        SET lastname = :lastname,firstname = :firstname,birthdate = :birthdate,phone = :phone,mail = :mail
+        WHERE id = :currentId";
+
+        $editPatientResult = $this->db->prepare($editPatientQuery);
+        $editPatientResult->bindValue(':currentId', $this->getId(), PDO::PARAM_INT);
+        $editPatientResult->bindValue(':lastname', $this->getLastname(), PDO::PARAM_STR);
+        $editPatientResult->bindValue(':firstname', $this->getFirstname(), PDO::PARAM_STR);
+        $editPatientResult->bindValue(':birthdate', $this->getBirthdate(), PDO::PARAM_STR);
+        $editPatientResult->bindValue(':phone', $this->getPhone(), PDO::PARAM_STR);
+        $editPatientResult->bindValue(':mail', $this->getMail(), PDO::PARAM_STR);
+        if ($editPatientResult->execute()) {
+            echo 'Le patient a été modifié';
+        } else {
+            echo 'Erreur';
+        }
+    }
 }

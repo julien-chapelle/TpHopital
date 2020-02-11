@@ -1,38 +1,12 @@
 <?php
 
-class Hlm_viewDetailPatientController
-{
-    //Attributs
-    private $_title;
-    private $_contents;
+require_once('Models/hlm_database.php');
+require_once('Models/hlm_patientModel.php');
+$patient = new Hlm_patient();
+if (isset($_GET['detailPatient'])) {
 
-    //fonction d'appel
-    public function getTitle()
-    {
-        return $this->_title;
-    }
-
-    public function setTitle($title)
-    {
-        $this->_title = $title;
-    }
-
-    public function getContents()
-    {
-        return $this->_contents;
-    }
-
-    public function setContents($contents)
-    {
-        $this->_contents = $contents;
-    }
-
-    //Constructeur
-    public function __construct($title,$contents)
-    {
-        $this->setTitle($title);
-        $this->setContents($contents);
-    }
+    $currentId = intval($_GET['detailPatient']);
+    //Hydratation
+    $patient->setId($currentId);
+    $detailPatient = $patient->detailPatient();
 }
-
-?>

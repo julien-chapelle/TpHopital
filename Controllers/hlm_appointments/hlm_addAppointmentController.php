@@ -6,16 +6,12 @@ $appointment = new Hlm_appointements();
 if (isset($_POST['addAppointment'])) {
     $dateAppointment = $_POST['dateAppointment'];
     $hourAppointment = $_POST['hourAppointment'];
-    $idPatientAppointment = intval($_POST['idPatient']);
+    $idPatientAppointment = intval($_GET['addAppointment']);
 
     //Hydratation
-    $appointment->setDateHour($dateAppointment . ' ' . $hourAppointment . ':00');
+    $appointment->setDateHour($dateAppointment . ' ' . $hourAppointment);
     $appointment->setIdPatients($idPatientAppointment);
+    $appointment->addAppointment();
 
-    var_dump($appointment->getDateHour());
-    var_dump($appointment->getIdPatients());
-
+    header('Location: http://hopitallamanu/index.php?list=appointment');
 }
-
-// $appointment->setDateHour(strftime('%Y-%m-%d %H:%M:%S'($dateAppointment + $hourAppointment)));
-// $appointment->setDateHour(strtotime($dateAppointment . ' ' . $hourAppointment . ':00'));

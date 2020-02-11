@@ -22,9 +22,9 @@
                             <td><?= $row['lastname'] . ' ' . $row['firstname'] ?></td>
                             <td>
                                 <form method="GET" action="index.php">
-                                    <a class="btn btn-outline-danger btn-sm" href="http://hopitallamanu/index.php?appointment=details" title="détails"><i class="fas fa-search"></i></a>
-                                    <a class="btn btn-outline-danger btn-sm" href="http://hopitallamanu/index.php?appointment=edit" title="Editer"><i class="fas fa-pen"></i></a>
-                                    <a class="btn btn-outline-danger btn-sm" href="http://hopitallamanu/index.php?appointment=delete" title="Supprimer"><i class="fas fa-times"></i></a>
+                                    <a class="btn btn-outline-danger btn-sm" href="http://hopitallamanu/index.php?detailPatient=<?= $row['id'] ?>" title="détails"><i class="fas fa-search"></i></a>
+                                    <a class="btn btn-outline-danger btn-sm" href="http://hopitallamanu/index.php?editAppointment=<?= $row['id'] ?>" title="Editer"><i class="fas fa-pen"></i></a>
+                                    <a class="btn btn-outline-danger btn-sm" href="http://hopitallamanu/index.php?deleteAppointment=<?= $row['id'] ?>" title="Supprimer"><i class="fas fa-times"></i></a>
                                 </form>
                             </td>
                         </tr>
