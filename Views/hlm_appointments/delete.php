@@ -10,10 +10,9 @@
                         </button>
                     </div>
                     <div class="modal-body text-center">
-                        <label for="idAppointmentDelete">Numéro rdv</label>
-                        <input type="text" class="form-control text-center" id="idAppointmentDelete" name="idAppointmentDelete" value="<?= $value['appointmentsId'] ?>" readonly />
-                        <p class="h5"><?= $value['lastname'] . ' ' . $value['firstname'] ?></p>
-                        <p class="h5"><?= $value['dateHour'] ?></p>
+                        <p class="h4"><?= $value['lastname'] . ' ' . $value['firstname'] ?></p>
+                        <input type="text" class="form-control text-center bg-white border-0" id="idAppointmentDelete" name="idAppointmentDelete" value="<?= $value['appointmentsId'] ?>" hidden />
+                        <p class="h5"><?= 'Rdv du ' . strftime('%A %d %B %Y', strtotime($value['dateHour'])) . ' à ' . strftime('%Hh%M', strtotime($value['dateHour'])) ?></p>
                         <p class="h4 text-danger">Voulez-vous vraiment supprimer ce rendez-vous ?</p>
                     </div>
                     <div class="modal-footer">

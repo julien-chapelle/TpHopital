@@ -1,6 +1,4 @@
-<?php
-require_once('Controllers/Home/hlm_homeController.php');
-?>
+<?php require_once('Controllers/Home/hlm_homeController.php'); ?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -19,27 +17,29 @@ require_once('Controllers/Home/hlm_homeController.php');
 
 <body>
     <div class="container-fluid p-0">
-        <form method="GET" action="index.php">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top borderBottomNav">
-                <a class="navbar-brand" href="http://hopitallamanu/index.php?view=Accueil"><img src="Assets/img/logoHlm.png" class="navLogo" alt="Logo Hôpital La Manu" title="Hôpital La Manu" /></a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top borderBottomNav shadow">
+            <a class="navbar-brand" href="http://hopitallamanu/index.php?view=Accueil"><img src="Assets/img/logoHlm.png" class="navLogo" alt="Logo Hôpital La Manu" title="Logo Hôpital La Manu" /></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <form method="GET" action="">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="http://hopitallamanu/index.php?list=patient">Liste des patients</a>
+                            <a class="nav-link" href="http://hopitallamanu/index.php?list=patient" title="Liste des patients">Liste des patients</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="http://hopitallamanu/index.php?list=appointment">Liste des rendez-vous</a>
+                            <a class="nav-link" href="http://hopitallamanu/index.php?list=appointment" title="Liste des rendez-vous">Liste des rendez-vous</a>
                         </li>
                     </ul>
-                </div>
-            </nav>
-        </form>
-        <?= include('Controllers/Home/hlm_homeBodyController.php') ?>
-        <?= include('Views/hlm_appointments/delete.php') ?>
-        <?= include('Views/hlm_patient/delete.php') ?>
+                </form>
+            </div>
+        </nav>
+        <div class="container-fluid p-0">
+            <?= include('Controllers/Home/hlm_homeBodyController.php') ?>
+            <?= include('Views/hlm_appointments/delete.php') ?>
+            <?= include('Views/hlm_patient/delete.php') ?>
+        </div>
         <footer class="bg-light borderTopFooter">
             <div class="row text-center px-3 py-2 m-0 justify-content-around">
                 <div class="col">
