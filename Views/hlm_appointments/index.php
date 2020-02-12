@@ -9,7 +9,7 @@
             <div class="row no-gutters">
                 <div class="col-md-3">
                     <div class="card-body px-2">
-                        <p class="card-text h5"><small class="text-dark">Numéro client</small></p>
+                        <p class="card-text h5"><small class="text-dark">N° patient</small></p>
                     </div>
                 </div>
                 <div class="col-md-3">
@@ -34,11 +34,11 @@
 <?php foreach ($listAppointment as $value) { ?>
     <div class="row text-center justify-content-around m-0">
         <div class="col my-auto">
-            <div class="card mb-3 p-2 shadow cardList">
+            <div class="card mb-3 shadow cardList">
                 <div class="row no-gutters">
                     <div class="col-md-3">
                         <div class="card-body px-2">
-                            <p class="card-text h5"><small class="text-dark"><?= $value['patientId'] ?></small></p>
+                            <p class="card-text h5"><small class="text-dark"><?= 'P' . $value['patientId'] ?></small></p>
                         </div>
                     </div>
                     <div class="col-md-3">

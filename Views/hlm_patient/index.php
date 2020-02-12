@@ -24,7 +24,7 @@
             <div class="row no-gutters">
                 <div class="col-md-1">
                     <div class="card-body px-2">
-                        <p class="card-text h5"><small class="text-dark">Numéro patient</small></p>
+                        <p class="card-text h5"><small class="text-dark">N° patient</small></p>
                     </div>
                 </div>
                 <div class="col-md-2">
@@ -68,7 +68,7 @@
                 <div class="row no-gutters">
                     <div class="col-md-1">
                         <div class="card-body px-2">
-                            <p class="card-text h4"><small class="text-dark"><?= $value['id'] ?></small></p>
+                            <p class="card-text h5"><small class="text-dark"><?= 'P' . $value['id'] ?></small></p>
                         </div>
                     </div>
                     <div class="col-md-2">

@@ -35,10 +35,8 @@
                 </form>
             </div>
         </nav>
-        <div class="container-fluid p-0">
+        <div class="container-fluid p-0 pb-5">
             <?= include('Controllers/Home/hlm_homeBodyController.php') ?>
-            <?= include('Views/hlm_appointments/delete.php') ?>
-            <?= include('Views/hlm_patient/delete.php') ?>
         </div>
         <footer class="bg-light borderTopFooter">
             <div class="row text-center px-3 py-2 m-0 justify-content-around">

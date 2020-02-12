@@ -13,7 +13,7 @@
                         <p class="h3"><?= $value['lastname'] . ' ' . $value['firstname'] ?></p>
                         <input type="text" class="form-control text-center bg-white border-0" id="idPatientDelete" name="idPatientDelete" value="<?= $value['id'] ?>" hidden />
                         <h5 class="card-title h4">Information :</h5>
-                        <p class="card-text">NUMERO PATIENT : <?= $value['id'] ?></p>
+                        <p class="card-text">NUMERO PATIENT : <?= 'P' . $value['id'] ?></p>
                         <p class="card-text">DATE DE NAISSANCE : <?= strftime('%d %B %Y', strtotime($value['birthdate'])) ?></p>
                         <p class="card-text">TELEPHONE : <?= $value['phone'] ?></p>
                         <p class="card-text">MAIL : <a href="mailto:<?= $value['mail'] ?>"><?= $value['mail'] ?></a></p>
