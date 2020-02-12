@@ -132,4 +132,17 @@ class Hlm_appointements extends Hlm_database
             return $deleteAppointment;
         };
     }
+
+    public function deleteAllPatientAppointment()
+    {
+        $deleteAllPatientAppointmentQuery = "DELETE FROM `hlm_appointments`
+        WHERE `idPatients` = :currentId";
+
+        $deleteAllPatientAppointmentResult = $this->db->prepare($deleteAllPatientAppointmentQuery);
+        $deleteAllPatientAppointmentResult->bindValue(':currentId', $this->getId(), PDO::PARAM_INT);
+        if ($deleteAllPatientAppointmentResult->execute()) {
+            $deleteAllPatientAppointment = $deleteAllPatientAppointmentResult->fetchAll(PDO::FETCH_ASSOC);
+            return $deleteAllPatientAppointment;
+        };
+    }
 }

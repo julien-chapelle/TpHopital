@@ -1,39 +1,19 @@
 <?php
+date_default_timezone_set('Europe/Paris');
+setlocale(LC_ALL, 'fra', 'fr_FR.utf8');
 
-class HomeController
-{
-    //Attributs
-    private $_title;
-    private $_contents;
-
-    //fonction d'appel
-    public function getTitle()
-    {
-        return $this->_title;
-    }
-
-    public function setTitle($title)
-    {
-        $this->_title = $title;
-    }
-
-    public function getContents()
-    {
-        return $this->_contents;
-    }
-
-    public function setContents($contents)
-    {
-        $this->_contents = $contents;
-    }
-
-    //Constructeur
-    public function __construct($title,$contents)
-    {
-        $this->setTitle($title);
-        $this->setContents($contents);
-    }
-}
+require_once('Controllers/hlm_patient/hlm_addPatientController.php');
+require_once('Controllers/hlm_appointments/hlm_addAppointmentController.php');
+require_once('Controllers/hlm_patient/hlm_listPatientController.php');
+require_once('Controllers/hlm_appointments/hlm_listAppointmentController.php');
+require_once('Controllers/Home/hlm_homeController.php');
+require_once('Controllers/hlm_patient/hlm_patientDetailViewController.php');
+require_once('Controllers/hlm_patient/hlm_patientEditViewController.php');
+require_once('Controllers/hlm_patient/hlm_patientDeleteViewController.php');
+require_once('Controllers/hlm_appointments/hlm_appointmentEditViewController.php');
+require_once('Controllers/hlm_appointments/hlm_appointmentDeleteViewController.php');
 
 ?>
+
+
 

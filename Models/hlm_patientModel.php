@@ -121,9 +121,9 @@ class Hlm_patient extends Hlm_database
 
     public function editPatient()
     {
-        $editPatientQuery = "UPDATE hlm_patients
-        SET lastname = :lastname,firstname = :firstname,birthdate = :birthdate,phone = :phone,mail = :mail
-        WHERE id = :currentId";
+        $editPatientQuery = "UPDATE `hlm_patients`
+        SET `lastname` = :lastname,`firstname` = :firstname,`birthdate` = :birthdate,`phone` = :phone,`mail` = :mail
+        WHERE `id` = :currentId";
 
         $editPatientResult = $this->db->prepare($editPatientQuery);
         $editPatientResult->bindValue(':currentId', $this->getId(), PDO::PARAM_INT);
@@ -137,5 +137,18 @@ class Hlm_patient extends Hlm_database
         } else {
             echo 'Erreur';
         }
+    }
+
+    public function deletePatient()
+    {
+        $deletePatientQuery = "DELETE FROM `hlm_patients`
+        WHERE `id` = :currentId";
+
+        $deletePatientResult = $this->db->prepare($deletePatientQuery);
+        $deletePatientResult->bindValue(':currentId', $this->getId(), PDO::PARAM_INT);
+        if ($deletePatientResult->execute()) {
+            $deletePatient = $deletePatientResult->fetchAll(PDO::FETCH_ASSOC);
+            return $deletePatient;
+        };
     }
 }

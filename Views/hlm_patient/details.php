@@ -6,7 +6,7 @@
            <div class="card-body">
                <h5 class="card-title h3">Information :</h5>
                <p class="card-text">NUMERO PATIENT : <?= $value['id'] ?></p>
-               <p class="card-text">DATE DE NAISSANCE : <?= $value['birthdate'] ?></p>
+               <p class="card-text">DATE DE NAISSANCE : <?= strftime('%d %B %Y',strtotime($value['birthdate'])) ?></p>
                <p class="card-text">TELEPHONE : <?= $value['phone'] ?></p>
                <p class="card-text">MAIL : <a href="mailto:<?= $value['mail'] ?>"><?= $value['mail'] ?></a></p>
                <form method="GET" action="index.php">
@@ -21,7 +21,7 @@
            <p class="card-text">RENDEZ-VOUS :</p>
            <ul class="list-group">
                <?php foreach ($detailAppointment as $value) { ?>
-                   <li class="list-group-item"><?= $value['dateHour'] ?></li>
+                   <li class="list-group-item"><?= strftime('%A %d %B %Y',strtotime($value['dateHour'])) . ' à ' . strftime('%Hh%M',strtotime($value['dateHour'])) ?></li>
                <?php }; ?>
            </ul>
        </div>

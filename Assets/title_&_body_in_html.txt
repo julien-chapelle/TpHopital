@@ -1,0 +1,17 @@
+        <?= isset($_GET['view']) && $_GET['view'] == 'Accueil' || empty($_GET) ? include('Views/Home/index.php') : '' ?>
+        <?= isset($_GET['list']) && $_GET['list'] == 'patient' ? include('Views/hlm_patient/index.php') : '' ?>
+        <?= isset($_GET['list']) && $_GET['list'] == 'appointment' ? include('Views/hlm_appointments/index.php') : '' ?>
+        <?= isset($_GET['patient']) && $_GET['patient'] == 'add' ? include('Views/hlm_patient/create.php') : '' ?>
+        <?= isset($_GET['detailPatient']) ? include('Views/hlm_patient/details.php') : '' ?>
+        <?= isset($_GET['editPatient']) ? include('Views/hlm_patient/edit.php') : '' ?>
+        <?= isset($_GET['addAppointment']) ? include('Views/hlm_appointments/create.php') : '' ?>
+        <?= isset($_GET['editAppointment']) ? include('Views/hlm_appointments/edit.php') : '' ?>
+
+<?= isset($_GET['view']) && $_GET['view'] == 'Accueil' || empty($_GET) ? '<title>Hopital La Manu</title>' : '' ?>
+    <?= isset($_GET['list']) && $_GET['list'] == 'patient' ? '<title>Liste des patients</title>' : '' ?>
+    <?= isset($_GET['list']) && $_GET['list'] == 'appointment' ? '<title>Liste des rendez-vous</title>' : '' ?>
+    <?= isset($_GET['patient']) && $_GET['patient'] == 'add' ? '<title>Ajout patient</title>' : '' ?>
+    <?= isset($_GET['detailPatient']) ? '<title>Détail patient</title>' : '' ?>
+    <?= isset($_GET['editPatient']) ? '<title>Editer patient</title>' : '' ?>
+    <?= isset($_GET['appointment']) && $_GET['appointment'] == 'add' ? '<title>Ajout rendez-vous</title>' : '' ?>
+    <?= isset($_GET['editAppointment']) ? '<title>Modification rendez-vous</title>' : '' ?>

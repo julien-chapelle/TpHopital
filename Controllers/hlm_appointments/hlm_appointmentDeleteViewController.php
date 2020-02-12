@@ -10,4 +10,6 @@ if (isset($_POST['deleteAppointment'])) {
     //Hydratation
     $appointment->setId($currentId);
     $deleteAppointment = $appointment->deleteAppointment();
+
+    header('refresh: 0');
 }

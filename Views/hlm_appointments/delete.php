@@ -1,6 +1,6 @@
-<?php foreach ($listAppointment as $row) { ?>
+<?php foreach ($listAppointment as $value) { ?>
     <form method="POST" action="">
-        <div class="modal fade" id="<?= 'deleteAppointment' . $row['appointmentsId'] ?>" tabindex="-1" role="dialog" aria-labelledby="deleteAppointmentLabel" aria-hidden="true">
+        <div class="modal fade" id="<?= 'deleteAppointment' . $value['appointmentsId'] ?>" tabindex="-1" role="dialog" aria-labelledby="deleteAppointmentLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header text-center">
@@ -11,9 +11,9 @@
                     </div>
                     <div class="modal-body text-center">
                         <label for="idAppointmentDelete">Numéro rdv</label>
-                        <input type="text" class="form-control text-center" id="idAppointmentDelete" name="idAppointmentDelete" value="<?= $row['appointmentsId'] ?>" readonly />
-                        <p class="h5"><?= $row['lastname'] . ' ' . $row['firstname'] ?></p>
-                        <p class="h5"><?= $row['dateHour'] ?></p>
+                        <input type="text" class="form-control text-center" id="idAppointmentDelete" name="idAppointmentDelete" value="<?= $value['appointmentsId'] ?>" readonly />
+                        <p class="h5"><?= $value['lastname'] . ' ' . $value['firstname'] ?></p>
+                        <p class="h5"><?= $value['dateHour'] ?></p>
                         <p class="h4 text-danger">Voulez-vous vraiment supprimer ce rendez-vous ?</p>
                     </div>
                     <div class="modal-footer">
