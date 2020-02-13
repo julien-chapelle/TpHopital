@@ -64,9 +64,11 @@ class Hlm_appointements extends Hlm_database
         LEFT JOIN `hlm_patients`
         ON `hlm_patients`.`id` = `hlm_appointments`.`idPatients` ORDER BY `hlm_appointments`.`dateHour` ASC";
 
-        $listAppointmentResult = $this->db->query($listAppointmentQuery);
-        $dataListAppointment = $listAppointmentResult->fetchAll();
-        return $dataListAppointment;
+        $listAppointmentResult = $this->db->prepare($listAppointmentQuery);
+        if ($listAppointmentResult->execute()) {
+            $dataListAppointment = $listAppointmentResult->fetchAll();
+            return $dataListAppointment;
+        };
     }
     public function detailAppointment()
     {

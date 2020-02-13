@@ -8,6 +8,9 @@ if (isset($_GET['url']) && $_GET['url'] == '' || isset($_GET['view']) && $_GET['
 } elseif (isset($_GET['list']) && $_GET['list'] == 'patient') {
     include('Views/hlm_patient/index.php');
     return;
+} elseif (isset($_GET['search'])) {
+    include('Views/hlm_patient/searchResult.php');
+    return;
 } elseif (isset($_GET['list']) && $_GET['list'] == 'appointment') {
     include('Views/hlm_appointments/index.php');
     return;

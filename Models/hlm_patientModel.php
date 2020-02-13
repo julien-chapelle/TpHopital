@@ -90,16 +90,30 @@ class Hlm_patient extends Hlm_database
         $addPatientResult->bindValue(':phone', $this->getPhone(), PDO::PARAM_STR);
         $addPatientResult->bindValue(':mail', $this->getMail(), PDO::PARAM_STR);
         $addPatientResult->execute();
-
     }
 
     public function listPatient()
     {
         $listPatientQuery = "SELECT * FROM `hlm_patients`";
 
-        $listPatientResult = $this->db->query($listPatientQuery);
-        $dataListPatient = $listPatientResult->fetchAll();
-        return $dataListPatient;
+        $listPatientResult = $this->db->prepare($listPatientQuery);
+        if ($listPatientResult->execute()) {
+            $dataListPatient = $listPatientResult->fetchAll();
+            return $dataListPatient;
+        }
+    }
+
+    public function listLimitePatient($limite,$debut)
+    {
+        $listPatientQuery = "SELECT * FROM `hlm_patients` LIMIT :limite OFFSET :debut";
+
+        $listPatientResult = $this->db->prepare($listPatientQuery);
+        $listPatientResult->bindValue(':limite', $limite, PDO::PARAM_INT);
+        $listPatientResult->bindValue(':debut', $debut, PDO::PARAM_INT);
+        if ($listPatientResult->execute()) {
+            $dataListPatient = $listPatientResult->fetchAll();
+            return $dataListPatient;
+        }
     }
 
     public function detailPatient()
@@ -144,4 +158,18 @@ class Hlm_patient extends Hlm_database
             return $deletePatient;
         };
     }
+
+    public function searchPatient()
+    {
+        $searchPatientQuery = "SELECT * FROM `hlm_patients`
+        WHERE `lastname` LIKE :searchLastname";
+
+        $searchPatientResult = $this->db->prepare($searchPatientQuery);
+        $searchPatientResult->bindValue(':searchLastname', $this->getLastname() . '%', PDO::PARAM_STR);
+        if ($searchPatientResult->execute()) {
+            $dataSearchPatient = $searchPatientResult->fetchAll(PDO::FETCH_ASSOC);
+            return $dataSearchPatient;
+        };
+    }
 }
+?>

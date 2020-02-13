@@ -8,6 +8,9 @@ if (isset($_GET['url']) && $_GET['url'] == '' || isset($_GET['view']) && $_GET['
 } elseif (isset($_GET['list']) && $_GET['list'] == 'appointment') {
     echo 'Liste des rendez-vous';
     return;
+} elseif (isset($_GET['search'])) {
+    echo 'Résultats recherche';
+    return;
 } elseif (isset($_GET['patient']) && $_GET['patient'] == 'add') {
     echo 'Ajout patient';
     return;

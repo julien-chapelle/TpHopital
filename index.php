@@ -1,4 +1,4 @@
-<?php require_once('Controllers/Home/hlm_homeController.php'); ?>
+<?php require_once('Controllers/Home/hlm_homeController.php');?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -26,7 +26,7 @@
                 <form method="GET" action="">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="http://hopitallamanu/index.php?list=patient" title="Liste des patients">Liste des patients</a>
+                            <a class="nav-link" href="http://hopitallamanu/index.php?list=patient&amp;page=1" title="Liste des patients">Liste des patients</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="http://hopitallamanu/index.php?list=appointment" title="Liste des rendez-vous">Liste des rendez-vous</a>

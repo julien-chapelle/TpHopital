@@ -1,12 +1,12 @@
 <div class="row text-center justify-content-center m-5">
     <div class="col my-auto">
-        <p class="h2">Liste des patients</p>
+        <p class="h2">Résultats de recherche par nom</p>
     </div>
 </div>
 <div class="row text-center justify-content-center m-5">
     <div class="col my-auto text-center">
-        <form method="GET" action="index.php">
-            <a class="btn btn-outline-danger shadow" href="http://hopitallamanu/index.php?patient=add" title="Ajouter un patient">Ajouter un patient</a>
+        <form method="GET" action="">
+            <a class="btn btn-outline-danger shadow" href="http://hopitallamanu/index.php?list=patient&amp;page=1" title="Retour liste des patient">Retour liste des patients</a>
         </form>
     </div>
 </div>
@@ -61,7 +61,7 @@
         </div>
     </div>
 </div>
-<?php foreach ($listLimitePatient as $value) { ?>
+<?php foreach ($searchPatient as $value) { ?>
     <div class="row text-center justify-content-around m-0">
         <div class="col my-auto">
             <div class="card mb-3 shadow cardList">
@@ -109,9 +109,3 @@
         </div>
     </div>
 <?php } ?>
-<div class="row text-center justify-content-around m-0">
-    <div class="col my-auto">
-        <a href="?list=patient&amp;page=<?= $page - 1; ?>">Page précédente</a>
-        <a href="?list=patient&amp;page=<?= $page + 1; ?>">Page suivante</a>
-    </div>
-</div>
