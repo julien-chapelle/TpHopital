@@ -12,7 +12,7 @@
 </div>
 <div class="row justify-content-center mx-0 my-2">
     <div class="col my-auto">
-        <form class="form-inline my-2 my-lg-0">
+        <form method="POST" action="" class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2 shadow" type="search" placeholder="Recherche" aria-label="Search">
             <button class="btn btn-outline-primary my-2 my-sm-0 shadow" type="submit" title="Recherche"><i class="fas fa-search"></i></button>
         </form>
@@ -88,7 +88,7 @@
                     </div>
                     <div class="col-md-2">
                         <div class="card-body px-2">
-                            <p class="card-text h5"><small class="text-dark"><?= $value['phone'] ?></small></p>
+                            <p class="card-text h5"><small class="text-dark"><a href="tel:<?= $value['phone'] ?>"><?= $value['phone'] ?></a></small></p>
                         </div>
                     </div>
                     <div class="col-md-2">

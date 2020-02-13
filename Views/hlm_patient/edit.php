@@ -4,27 +4,33 @@
             <form method="POST" action="">
                 <div class="form-group">
                     <label for="lastnamePatient">Nom</label>
-                    <input type="text" class="form-control text-center shadow" id="lastnamePatient" name="lastnamePatient" value="<?= $value['lastname'] ?>">
+                    <input type="text" class="form-control text-center shadow" id="lastnamePatient" name="lastnamePatient" value="<?= isset($_POST['editPatient']) && !empty($arrayError) ? $_POST['lastnamePatient'] : $value['lastname'] ?>" />
+                    <p class="errorMessage"><?= isset($arrayError['lastnamePatient']) && !empty($arrayError['lastnamePatient']) ? $arrayError['lastnamePatient'] : '' ?></p>
                 </div>
                 <div class="form-group">
                     <label for="firstnamePatient">Prénom</label>
-                    <input type="text" class="form-control text-center shadow" id="firstnamePatient" name="firstnamePatient" value="<?= $value['firstname'] ?>">
+                    <input type="text" class="form-control text-center shadow" id="firstnamePatient" name="firstnamePatient" value="<?= isset($_POST['editPatient']) && !empty($arrayError) ? $_POST['firstnamePatient'] : $value['firstname'] ?>" />
+                    <p class="errorMessage"><?= isset($arrayError['firstnamePatient']) && !empty($arrayError['firstnamePatient']) ? $arrayError['firstnamePatient'] : '' ?></p>
                 </div>
                 <div class="form-group">
                     <label for="birthdatePatient">Date de naissance</label>
-                    <input type="date" class="form-control text-center shadow" id="birthdatePatient" name="birthdatePatient" value="<?= $value['birthdate'] ?>">
+                    <input type="date" class="form-control text-center shadow" id="birthdatePatient" name="birthdatePatient" value="<?= isset($_POST['editPatient']) && !empty($arrayError) ? $_POST['birthdatePatient'] : $value['birthdate'] ?>" />
+                    <p class="errorMessage"><?= isset($arrayError['birthdatePatient']) && !empty($arrayError['birthdatePatient']) ? $arrayError['birthdatePatient'] : '' ?></p>
                 </div>
                 <div class="form-group">
                     <label for="phonePatient">Téléphone</label>
-                    <input type="tel" class="form-control text-center shadow" id="phonePatient" name="phonePatient" value="<?= $value['phone'] ?>">
+                    <input type="tel" class="form-control text-center shadow" id="phonePatient" name="phonePatient" value="<?= isset($_POST['editPatient']) && !empty($arrayError) ? $_POST['phonePatient'] : $value['phone'] ?>" />
+                    <p class="errorMessage"><?= isset($arrayError['phonePatient']) && !empty($arrayError['phonePatient']) ? $arrayError['phonePatient'] : '' ?></p>
                 </div>
                 <div class="form-group">
                     <label for="mailPatient">Mail</label>
-                    <input type="email" class="form-control text-center shadow" id="mailPatient" name="mailPatient" value="<?= $value['mail'] ?>">
+                    <input type="email" class="form-control text-center shadow" id="mailPatient" name="mailPatient" value="<?= isset($_POST['editPatient']) && !empty($arrayError) ? $_POST['mailPatient'] : $value['mail'] ?>" />
+                    <p class="errorMessage"><?= isset($arrayError['mailPatient']) && !empty($arrayError['mailPatient']) ? $arrayError['mailPatient'] : '' ?></p>
                 </div>
                 <div class="form-group">
                     <a class="btn btn-outline-danger btn-lg shadow" href="http://hopitallamanu/index.php?detailPatient=<?= $value['id'] ?>" title="Retour au détail du patient"><i class="fas fa-reply"></i></a>
                     <button class="btn btn-outline-danger btn-lg shadow" type="submit" name="editPatient" title="Editer patient"><i class="fas fa-user-edit"></i></button>
+                    <p class="validMessage shadow"><?= isset($_POST['editPatient']) && empty($arrayError) ? 'Patient modifié' : '' ?></p>
                 </div>
             </form>
         </div>

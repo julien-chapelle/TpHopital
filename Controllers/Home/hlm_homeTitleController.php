@@ -1,5 +1,5 @@
 <?php
-if (isset($_GET['view']) && $_GET['view'] == 'Accueil' || empty($_GET)) {
+if (isset($_GET['url']) && $_GET['url'] == '' || isset($_GET['view']) && $_GET['view'] == 'Accueil' || empty($_GET)) {
     echo 'Hopital La Manu';
     return;
 } elseif (isset($_GET['list']) && $_GET['list'] == 'patient') {

@@ -15,7 +15,7 @@
                         <h5 class="card-title h4">Information :</h5>
                         <p class="card-text">NUMERO PATIENT : <?= 'P' . $value['id'] ?></p>
                         <p class="card-text">DATE DE NAISSANCE : <?= strftime('%d %B %Y', strtotime($value['birthdate'])) ?></p>
-                        <p class="card-text">TELEPHONE : <?= $value['phone'] ?></p>
+                        <p class="card-text">TELEPHONE : <a href="tel:<?= $value['phone'] ?>"><?= $value['phone'] ?></a></p>
                         <p class="card-text">MAIL : <a href="mailto:<?= $value['mail'] ?>"><?= $value['mail'] ?></a></p>
                         <p class="h4 text-danger">Voulez-vous vraiment supprimer ce patient ainsi que tous ses rendez-vous ?</p>
                     </div>

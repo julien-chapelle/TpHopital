@@ -89,11 +89,8 @@ class Hlm_patient extends Hlm_database
         $addPatientResult->bindValue(':birthdate', $this->getBirthdate(), PDO::PARAM_STR);
         $addPatientResult->bindValue(':phone', $this->getPhone(), PDO::PARAM_STR);
         $addPatientResult->bindValue(':mail', $this->getMail(), PDO::PARAM_STR);
-        if ($addPatientResult->execute()) {
-            echo 'Le patient a été ajouté';
-        } else {
-            echo 'Erreur';
-        }
+        $addPatientResult->execute();
+
     }
 
     public function listPatient()
@@ -132,11 +129,7 @@ class Hlm_patient extends Hlm_database
         $editPatientResult->bindValue(':birthdate', $this->getBirthdate(), PDO::PARAM_STR);
         $editPatientResult->bindValue(':phone', $this->getPhone(), PDO::PARAM_STR);
         $editPatientResult->bindValue(':mail', $this->getMail(), PDO::PARAM_STR);
-        if ($editPatientResult->execute()) {
-            echo 'Le patient a été modifié';
-        } else {
-            echo 'Erreur';
-        }
+        $editPatientResult->execute();
     }
 
     public function deletePatient()

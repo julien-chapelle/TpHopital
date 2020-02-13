@@ -54,11 +54,7 @@ class Hlm_appointements extends Hlm_database
         $addAppointmentResult = $this->db->prepare($addAppointmentQuery);
         $addAppointmentResult->bindValue(':dateHour', $this->getDateHour(), PDO::PARAM_STR);
         $addAppointmentResult->bindValue(':idPatients', $this->getIdPatients(), PDO::PARAM_INT);
-        if ($addAppointmentResult->execute()) {
-            echo 'Le rendez-vous a été ajouté';
-        } else {
-            echo 'Erreur';
-        }
+        $addAppointmentResult->execute();
     }
 
     public function listAppointment()
@@ -66,7 +62,7 @@ class Hlm_appointements extends Hlm_database
         $listAppointmentQuery = "SELECT `hlm_appointments`.`id` AS `appointmentsId`,`hlm_appointments`.`dateHour`,`hlm_patients`.`lastname`, `hlm_patients`.`firstname`,`hlm_patients`.`id` AS `patientId`
         FROM `hlm_appointments`
         LEFT JOIN `hlm_patients`
-        ON `hlm_patients`.`id` = `hlm_appointments`.`idPatients` ORDER BY `hlm_appointments`.`idPatients` ASC";
+        ON `hlm_patients`.`id` = `hlm_appointments`.`idPatients` ORDER BY `hlm_appointments`.`dateHour` ASC";
 
         $listAppointmentResult = $this->db->query($listAppointmentQuery);
         $dataListAppointment = $listAppointmentResult->fetchAll();
@@ -97,11 +93,7 @@ class Hlm_appointements extends Hlm_database
         $editAppointmentResult = $this->db->prepare($editAppointmentQuery);
         $editAppointmentResult->bindValue(':currentId', $this->getId(), PDO::PARAM_INT);
         $editAppointmentResult->bindValue(':dateHour', $this->getDateHour(), PDO::PARAM_STR);
-        if ($editAppointmentResult->execute()) {
-            echo 'Le patient a été modifié';
-        } else {
-            echo 'Erreur';
-        }
+        $editAppointmentResult->execute();
     }
 
     public function appointmentListOnDetailPatient()
