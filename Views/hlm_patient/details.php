@@ -11,7 +11,7 @@
                 <p class="card-text">TELEPHONE : <a href="tel:<?= $value['phone'] ?>"><?= $value['phone'] ?></a></p>
                 <p class="card-text">MAIL : <a href="mailto:<?= $value['mail'] ?>"><?= $value['mail'] ?></a></p>
                 <form method="GET" action="index.php">
-                    <a class="btn btn-outline-danger btn-sm" href="http://hopitallamanu/index.php?list=patient" title="Retour à la liste patient"><i class="fas fa-reply"></i></a>
+                    <a class="btn btn-outline-danger btn-sm" href="http://hopitallamanu/index.php?list=patient&page=1" title="Retour à la liste patient"><i class="fas fa-reply"></i></a>
                     <a class="btn btn-outline-danger btn-sm" href="http://hopitallamanu/index.php?addAppointment=<?= $value['id'] ?>" title="Ajout rendez-vous"><i class="far fa-calendar-check"></i></a>
                     <a class="btn btn-outline-danger btn-sm" href="http://hopitallamanu/index.php?editPatient=<?= $value['id'] ?>" title="Editer"><i class="fas fa-pen"></i></a>
                 </form>

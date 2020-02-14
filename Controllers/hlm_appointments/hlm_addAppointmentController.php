@@ -6,16 +6,16 @@ $arrayError = [];
 $appointment = new Hlm_appointements();
 
 // ERROR DATE
-$regexDate = '/^[1-2]{1}[0-9]{3}-[0-9]{1}[1-9]{1}-[0-9]{1}[1-9]{1}$/';
+// $regexDate = '/^[1-2]{1}[0-9]{3}-[0-9]{1}[1-9]{1}-[0-9]{1}[1-9]{1}$/';
 
-if (isset($_POST['dateAppointment'])) {
-    if (!preg_match($regexDate, $_POST['dateAppointment'])) {
-        $arrayError['dateAppointment'] = 'Veuillez respecter le format "aaaa-mm-jj"';
-    };
-    if (empty($_POST['dateAppointment'])) {
-        $arrayError['dateAppointment'] = 'Veuillez remplir le champ';
-    };
-};
+// if (isset($_POST['dateAppointment'])) {
+//     if (!preg_match($regexDate, $_POST['dateAppointment'])) {
+//         $arrayError['dateAppointment'] = 'Veuillez respecter le format "aaaa-mm-jj"';
+//     };
+//     if (empty($_POST['dateAppointment'])) {
+//         $arrayError['dateAppointment'] = 'Veuillez remplir le champ';
+//     };
+// };
 // ERROR HOUR
 $regexHour = '/^[0-9]{2}:[0-9]{2}$/';
 

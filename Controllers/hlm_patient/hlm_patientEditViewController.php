@@ -36,16 +36,16 @@ if (isset($_POST['firstnamePatient'])) {
     };
 };
 // ERROR BIRTHDATE
-$regexBirthdate = '/^[1-2]{1}[0-9]{3}-[0-9]{1}[1-9]{1}-[0-9]{1}[1-9]{1}$/';
+// $regexBirthdate = '/^[1-2]{1}[0-9]{3}-[0-9]{1}[1-9]{1}-[0-9]{1}[1-9]{1}$/';
 
-if (isset($_POST['birthdatePatient'])) {
-    if (!preg_match($regexBirthdate, $_POST['birthdatePatient'])) {
-        $arrayError['birthdatePatient'] = 'Veuillez respecter le format "aaaa-mm-jj"';
-    };
-    if (empty($_POST['birthdatePatient'])) {
-        $arrayError['birthdatePatient'] = 'Veuillez remplir le champ';
-    };
-};
+// if (isset($_POST['birthdatePatient'])) {
+//     if (!preg_match($regexBirthdate, $_POST['birthdatePatient'])) {
+//         $arrayError['birthdatePatient'] = 'Veuillez respecter le format "aaaa-mm-jj"';
+//     };
+//     if (empty($_POST['birthdatePatient'])) {
+//         $arrayError['birthdatePatient'] = 'Veuillez remplir le champ';
+//     };
+// };
 // ERROR PHONE
 $regexPhone = '/^[0]{1}[1-9]{1}[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}$/';
 

@@ -27,7 +27,7 @@
                 <p class="errorMessage"><?= isset($arrayError['mailPatient']) && !empty($arrayError['mailPatient']) ? $arrayError['mailPatient'] : '' ?></p>
             </div>
             <div class="form-group">
-                <a class="btn btn-outline-danger btn-lg shadow" href="http://hopitallamanu/index.php?list=patient" title="Retour à la liste patient"><i class="fas fa-reply"></i></a>
+                <a class="btn btn-outline-danger btn-lg shadow" href="http://hopitallamanu/index.php?list=patient&page=1" title="Retour à la liste patient"><i class="fas fa-reply"></i></a>
                 <button class="btn btn-outline-danger btn-lg shadow" type="submit" name="addPatient" title="Créer patient"><i class="fas fa-user-plus"></i></button>
                 <p class="validMessage shadow"><?= isset($_POST['addPatient']) && empty($arrayError) ? 'Patient ajouté' : '' ?></p>
             </div>

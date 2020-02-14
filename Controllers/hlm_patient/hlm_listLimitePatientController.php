@@ -15,7 +15,9 @@ if (isset($_GET['page'])) {
     $listLimitePatient = $patient->listLimitePatient($limite, $debut);
 };
 
-if ($_GET['page'] == 0 || $_GET['page'] > $pageCount) {
+if (isset($_GET['page']) && $_GET['page'] <= 0 || isset($_GET['page']) && $_GET['page'] > $pageCount) {
     header('Location: http://hopitallamanu/index.php?list=patient&page=1');
+} else {
+    '';
 };
 ?>
