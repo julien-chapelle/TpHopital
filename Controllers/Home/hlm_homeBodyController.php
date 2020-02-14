@@ -26,6 +26,9 @@ if (isset($_GET['url']) && $_GET['url'] == '' || isset($_GET['view']) && $_GET['
 } elseif (isset($_GET['addAppointment'])) {
     include('Views/hlm_appointments/create.php');
     return;
+} elseif (isset($_GET['patientAppointement']) && $_GET['patientAppointement'] == 'add') {
+    include('Views/hlm_patient/createPatient&Appointment.php');
+    return;
 } elseif (isset($_GET['editAppointment'])) {
     include('Views/hlm_appointments/edit.php');
     return;

@@ -1,12 +1,17 @@
-<div class="row text-center justify-content-center m-5">
+<div class="row text-center justify-content-center mt-5 mb-3">
     <div class="col my-auto">
         <p class="h2">Liste des patients</p>
     </div>
 </div>
-<div class="row text-center justify-content-center m-5">
-    <div class="col my-auto text-center">
+<div class="row text-center justify-content-center my-3">
+    <div class="col-12 my-auto text-center">
         <form method="GET" action="index.php">
-            <a class="btn btn-outline-danger shadow" href="http://hopitallamanu/index.php?patient=add" title="Ajouter un patient">Ajouter un patient</a>
+            <a class="btn btn-outline-danger shadow m-1" href="http://hopitallamanu/index.php?patient=add" title="Ajouter un patient">Ajouter un patient</a>
+        </form>
+    </div>
+    <div class="col-12 my-auto text-center">
+        <form method="GET" action="index.php">
+            <a class="btn btn-outline-danger shadow m-1" href="http://hopitallamanu/index.php?patientAppointement=add" title="Ajouter un patient + rendez-vous">Ajouter un patient + rendez-vous</a>
         </form>
     </div>
 </div>

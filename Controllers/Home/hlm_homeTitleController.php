@@ -14,6 +14,9 @@ if (isset($_GET['url']) && $_GET['url'] == '' || isset($_GET['view']) && $_GET['
 } elseif (isset($_GET['patient']) && $_GET['patient'] == 'add') {
     echo 'Ajout patient';
     return;
+} elseif (isset($_GET['patientAppointement']) && $_GET['patientAppointement'] == 'add') {
+    echo 'Ajout patient & rendez-vous';
+    return;
 } elseif (isset($_GET['detailPatient'])) {
     echo 'Détail patient';
     return;
