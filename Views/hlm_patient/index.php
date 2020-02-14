@@ -109,9 +109,18 @@
         </div>
     </div>
 <?php } ?>
-<div class="row text-center justify-content-around m-0">
-    <div class="col my-auto">
-        <a href="?list=patient&amp;page=<?= $page - 1; ?>">Page précédente</a>
-        <a href="?list=patient&amp;page=<?= $page + 1; ?>">Page suivante</a>
-    </div>
+<div class="row text-center justify-content-center m-0">
+    <?php if ($page > 1) { ?>
+        <a class="btn btn-outline-danger mx-2" href="http://hopitallamanu/index.php?list=patient&amp;page=<?= 1 ?>"><i class="fas fa-angle-double-left"></i></a>
+        <a class="btn btn-outline-danger mx-2" href="http://hopitallamanu/index.php?list=patient&amp;page=<?= $page - 1 ?>"><i class="fas fa-angle-left"></i></a>
+    <?php } else {
+        '';
+    } ?>
+    <p class="text-danger mx-2"><?= $page . '/' . $pageCount ?></p>
+    <?php if ($page < $pageCount) { ?>
+        <a class="btn btn-outline-danger mx-2" href="http://hopitallamanu/index.php?list=patient&amp;page=<?= $page + 1 ?>"><i class="fas fa-angle-right"></i></a>
+        <a class="btn btn-outline-danger mx-2" href="http://hopitallamanu/index.php?list=patient&amp;page=<?= $pageCount ?>"><i class="fas fa-angle-double-right"></i></a>
+    <?php } else {
+        '';
+    } ?>
 </div>

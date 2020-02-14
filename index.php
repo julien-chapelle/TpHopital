@@ -1,4 +1,4 @@
-<?php require_once('Controllers/Home/hlm_homeController.php');?>
+<?php require_once('Controllers/Home/hlm_homeController.php'); ?>
 <!DOCTYPE html>
 <html lang="fr">
 

@@ -24,8 +24,10 @@ USE `hospitale2n`;
 --         LEFT JOIN `hlm_patients`
 --         ON `hlm_patients`.`id` = `hlm_appointments`.`idPatients`;
 
-SELECT * FROM `hlm_patients`
-        WHERE `lastname` LIKE 'd%';
+-- SELECT * FROM `hlm_patients`
+--         WHERE `lastname` LIKE 'd%';
+
+SELECT count(`id`) AS `countId` FROM `hlm_patients`;
 
 
 

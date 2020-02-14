@@ -2,10 +2,20 @@
 
 require_once('Models/hlm_database.php');
 require_once('Models/hlm_patientModel.php');
-$patient = new Hlm_patient();
-$page = $_GET['page'];
-$limite = 5;
-$debut = ($page - 1) * $limite;
-$listLimitePatient = $patient->listLimitePatient($limite,$debut);
+$countPatient = new Hlm_patient();
+$countPatientResult = $countPatient->countPatient();
 
+$patient = new Hlm_patient();
+
+if (isset($_GET['page'])) {
+    $page = $_GET['page'];
+    $limite = 5;
+    $pageCount = ceil(intval($countPatientResult[0]['countId']) / $limite);
+    $debut = ($page - 1) * $limite;
+    $listLimitePatient = $patient->listLimitePatient($limite, $debut);
+};
+
+if ($_GET['page'] == 0 || $_GET['page'] > $pageCount) {
+    header('Location: http://hopitallamanu/index.php?list=patient&page=1');
+};
 ?>

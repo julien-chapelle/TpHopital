@@ -103,16 +103,27 @@ class Hlm_patient extends Hlm_database
         }
     }
 
-    public function listLimitePatient($limite,$debut)
+    public function countPatient()
     {
-        $listPatientQuery = "SELECT * FROM `hlm_patients` LIMIT :limite OFFSET :debut";
+        $countPatientQuery = "SELECT count(`id`) AS `countId` FROM `hlm_patients`";
 
-        $listPatientResult = $this->db->prepare($listPatientQuery);
-        $listPatientResult->bindValue(':limite', $limite, PDO::PARAM_INT);
-        $listPatientResult->bindValue(':debut', $debut, PDO::PARAM_INT);
-        if ($listPatientResult->execute()) {
-            $dataListPatient = $listPatientResult->fetchAll();
-            return $dataListPatient;
+        $countPatientResult = $this->db->prepare($countPatientQuery);
+        if ($countPatientResult->execute()) {
+            $dataCountPatient = $countPatientResult->fetchAll();
+            return $dataCountPatient;
+        }
+    }
+
+    public function listLimitePatient($limite, $debut)
+    {
+        $listLimitePatientQuery = "SELECT * FROM `hlm_patients` LIMIT :limite OFFSET :debut";
+
+        $listLimitePatientResult = $this->db->prepare($listLimitePatientQuery);
+        $listLimitePatientResult->bindValue(':limite', $limite, PDO::PARAM_INT);
+        $listLimitePatientResult->bindValue(':debut', $debut, PDO::PARAM_INT);
+        if ($listLimitePatientResult->execute()) {
+            $dataListLimitePatient = $listLimitePatientResult->fetchAll();
+            return $dataListLimitePatient;
         }
     }
 
@@ -172,4 +183,5 @@ class Hlm_patient extends Hlm_database
         };
     }
 }
+
 ?>
