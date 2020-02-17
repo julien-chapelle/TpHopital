@@ -90,6 +90,8 @@ class Hlm_patient extends Hlm_database
         $addPatientResult->bindValue(':phone', $this->getPhone(), PDO::PARAM_STR);
         $addPatientResult->bindValue(':mail', $this->getMail(), PDO::PARAM_STR);
         $addPatientResult->execute();
+        $lastId = $this->db->lastInsertId();
+        return $lastId;
     }
 
     public function listPatient()

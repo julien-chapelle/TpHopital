@@ -98,15 +98,14 @@ if (isset($_POST['addPatientAppointment']) && empty($arrayError)) {
     $patient->setBirthdate($birthdate);
     $patient->setPhone($phone);
     $patient->setMail($mail);
-    $patient->addPatient();
+    $lastId = $patient->addPatient();
 
     $dateAppointment = htmlspecialchars($_POST['dateAppointment']);
     $hourAppointment = htmlspecialchars($_POST['hourAppointment']);
-    $idPatientAppointment = htmlspecialchars(intval($_GET['addAppointment']));
 
     //Hydratation
     $appointment->setDateHour($dateAppointment . ' ' . $hourAppointment);
-    $appointment->setIdPatients($idPatientAppointment);
+    $appointment->setIdPatients($lastId);
     $appointment->addAppointment();
 
     header('refresh:3;url=http://hopitallamanu/index.php?list=patient&page=1');

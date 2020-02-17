@@ -22,7 +22,7 @@ if (isset($_POST['deletePatient'])) {
     $patient->setId($currentId);
     $deletePatient = $patient->deletePatient();
 
-    header('refresh: 0');
+    header('Location: http://hopitallamanu/index.php?list=patient&page=1');
 }
 
 ?>
