@@ -1,4 +1,4 @@
-<?php require_once('Controllers/Home/hlm_homeController.php'); var_dump($_POST); var_dump($arrayError)?>
+<?php require_once('Controllers/Home/hlm_homeController.php'); ?>
 <!DOCTYPE html>
 <html lang="fr">
 
