@@ -88,7 +88,7 @@
                     </div>
                     <div class="col-md-2">
                         <div class="card-body px-2">
-                            <p class="card-text h5"><small class="text-dark"><?= strftime('%d %B %Y', strtotime($value['birthdate'])) ?></small></p>
+                            <p class="card-text h5"><small class="text-dark"><?= utf8_encode(strftime('%d %B %Y', strtotime($value['birthdate']))) ?></small></p>
                         </div>
                     </div>
                     <div class="col-md-2">

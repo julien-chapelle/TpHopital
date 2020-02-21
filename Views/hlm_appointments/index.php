@@ -43,7 +43,7 @@
                     </div>
                     <div class="col-md-3">
                         <div class="card-body px-2">
-                            <p class="card-text h5"><small class="text-dark"><?= strftime('%A %d %B %Y', strtotime($value['dateHour'])) . ' à ' . strftime('%Hh%M', strtotime($value['dateHour'])) ?></small></p>
+                            <p class="card-text h5"><small class="text-dark"><?= utf8_encode(strftime('%A %d %B %Y', strtotime($value['dateHour']))) . ' à ' . strftime('%Hh%M', strtotime($value['dateHour'])) ?></small></p>
                         </div>
                     </div>
                     <div class="col-md-3">
