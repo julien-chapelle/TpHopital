@@ -4,27 +4,27 @@
             <form method="POST" action="">
                 <div class="form-group">
                     <label for="lastnamePatient">Nom</label>
-                    <input type="text" class="form-control text-center shadow" id="lastnamePatient" name="lastnamePatient" value="<?= isset($_POST['editPatient']) && !empty($arrayError) ? $_POST['lastnamePatient'] : $value['lastname'] ?>" />
+                    <input type="text" class="form-control text-center shadow" id="lastnamePatient" name="lastnamePatient" value="<?= isset($_POST['editPatient']) && !empty($arrayError) ? $_POST['editPatient'] : $value['lastname'] ?>" />
                     <p class="errorMessage"><?= isset($arrayError['lastnamePatient']) && !empty($arrayError['lastnamePatient']) ? $arrayError['lastnamePatient'] : '' ?></p>
                 </div>
                 <div class="form-group">
                     <label for="firstnamePatient">Prénom</label>
-                    <input type="text" class="form-control text-center shadow" id="firstnamePatient" name="firstnamePatient" value="<?= isset($_POST['editPatient']) && !empty($arrayError) ? $_POST['firstnamePatient'] : $value['firstname'] ?>" />
+                    <input type="text" class="form-control text-center shadow" id="firstnamePatient" name="firstnamePatient" value="<?= isset($_POST['editPatient']) && !empty($arrayError) ? $_POST['editPatient'] : $value['firstname'] ?>" />
                     <p class="errorMessage"><?= isset($arrayError['firstnamePatient']) && !empty($arrayError['firstnamePatient']) ? $arrayError['firstnamePatient'] : '' ?></p>
                 </div>
                 <div class="form-group">
                     <label for="birthdatePatient">Date de naissance</label>
-                    <input type="date" class="form-control text-center shadow" id="birthdatePatient" name="birthdatePatient" value="<?= isset($_POST['editPatient']) && !empty($arrayError) ? $_POST['birthdatePatient'] : $value['birthdate'] ?>" />
+                    <input type="date" class="form-control text-center shadow" id="birthdatePatient" name="birthdatePatient" value="<?= isset($_POST['editPatient']) && !empty($arrayError) ? $_POST['editPatient'] : $value['birthdate'] ?>" />
                     <p class="errorMessage"><?= isset($arrayError['birthdatePatient']) && !empty($arrayError['birthdatePatient']) ? $arrayError['birthdatePatient'] : '' ?></p>
                 </div>
                 <div class="form-group">
                     <label for="phonePatient">Téléphone</label>
-                    <input type="tel" class="form-control text-center shadow" id="phonePatient" name="phonePatient" value="<?= isset($_POST['editPatient']) && !empty($arrayError) ? $_POST['phonePatient'] : $value['phone'] ?>" />
+                    <input type="tel" class="form-control text-center shadow" id="phonePatient" name="phonePatient" value="<?= isset($_POST['editPatient']) && !empty($arrayError) ? $_POST['editPatient'] : $value['phone'] ?>" />
                     <p class="errorMessage"><?= isset($arrayError['phonePatient']) && !empty($arrayError['phonePatient']) ? $arrayError['phonePatient'] : '' ?></p>
                 </div>
                 <div class="form-group">
                     <label for="mailPatient">Mail</label>
-                    <input type="email" class="form-control text-center shadow" id="mailPatient" name="mailPatient" value="<?= isset($_POST['editPatient']) && !empty($arrayError) ? $_POST['mailPatient'] : $value['mail'] ?>" />
+                    <input type="email" class="form-control text-center shadow" id="mailPatient" name="mailPatient" value="<?= isset($_POST['editPatient']) && !empty($arrayError) ? $_POST['editPatient'] : $value['mail'] ?>" />
                     <p class="errorMessage"><?= isset($arrayError['mailPatient']) && !empty($arrayError['mailPatient']) ? $arrayError['mailPatient'] : '' ?></p>
                 </div>
                 <div class="form-group">

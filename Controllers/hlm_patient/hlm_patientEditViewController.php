@@ -2,7 +2,6 @@
 
 require_once('Models/hlm_database.php');
 require_once('Models/hlm_patientModel.php');
-$arrayError = [];
 $patient = new Hlm_patient();
 
 if (isset($_GET['editPatient'])) {

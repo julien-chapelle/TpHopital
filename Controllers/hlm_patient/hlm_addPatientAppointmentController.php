@@ -3,7 +3,6 @@
 require_once('Models/hlm_database.php');
 require_once('Models/hlm_patientModel.php');
 require_once('Models/hlm_appointmentsModel.php');
-$arrayError = [];
 $patient = new Hlm_patient();
 $appointment = new Hlm_appointements();
 

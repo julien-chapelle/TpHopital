@@ -2,7 +2,6 @@
 
 require_once('Models/hlm_database.php');
 require_once('Models/hlm_appointmentsModel.php');
-$arrayError = [];
 $appointment = new Hlm_appointements();
 
 // ERROR DATE
